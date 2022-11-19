@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "z54hRU7KPbXK6W6/vbM7FM9GhI8l/dAU8VrWFOZ9BN5M4m5yfMIo02dbL3p8rAYbsVB8S4dr39DGdu1YoVohmg==",
+  "success": true,
+  "projectFilePath": "/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/helloworld/helloworld.fsproj",
+  "expectedPackageFiles": [
+    "/Users/bernardocohen/.nuget/packages/fsharp.core/7.0.0/fsharp.core.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
