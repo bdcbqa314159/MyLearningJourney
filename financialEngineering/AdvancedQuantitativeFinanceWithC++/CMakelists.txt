@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+project(Advanced_Quant_Fi VERSION 0.1.0)
+
+add_subdirectory(my_random)
+add_subdirectory(my_equity)
+add_subdirectory(my_linalg)
+add_subdirectory(my_fx)
+
+add_executable(tester main.cpp)
+add_executable(tester_fx main_fx.cpp)
+
+target_link_libraries(tester my_random my_equity)
+target_link_libraries(tester_fx my_linalg my_fx)

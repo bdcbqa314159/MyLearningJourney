@@ -1,0 +1,7 @@
+#ifndef MY_EQUITY_LIBRARY_H
+#define MY_EQUITY_LIBRARY_H
+
+#include "my_equity/equity1.hpp"
+#include "my_equity/equity2.hpp"
+
+#endif

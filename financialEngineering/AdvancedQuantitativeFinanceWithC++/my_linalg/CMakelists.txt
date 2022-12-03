@@ -1,0 +1,15 @@
+file(GLOB my_linalg_headers include/my_linalg/**.hpp)
+file(GLOB my_linalg_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${my_linalg_headers}
+    ${my_linalg_sources}
+    include/my_linalg_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(my_linalg
+    ${SOURCE_FILES})
+
+target_include_directories(my_linalg PUBLIC include)
