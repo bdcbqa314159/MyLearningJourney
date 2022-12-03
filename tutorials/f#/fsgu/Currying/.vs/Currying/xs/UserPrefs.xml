@@ -1,18 +1,15 @@
-﻿<Properties StartupConfiguration="{1164E603-E6F6-4320-9FAD-5CA486C12D53}|Default">
+﻿<Properties StartupConfiguration="{99F50140-2ACB-489F-9ACC-F71929C2D1E7}|Default">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Currying PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Program.fs">
     <Files>
-      <File FileName="Program.fs" Line="3" Column="19" />
-      <File FileName="Float.fs" />
+      <File FileName="Program.fs" Line="15" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="StudentScores" expanded="True">
-            <Node name="StudentScores" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-              </Node>
+          <Node name="Currying" expanded="True">
+            <Node name="Currying" expanded="True">
               <Node name="Program.fs" selected="True" />
             </Node>
           </Node>
@@ -24,6 +21,5 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.StudentScores PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>

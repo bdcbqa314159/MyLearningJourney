@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xghCE7/QTTCZS3/GKh3RGBMJ1KXyoRc6sjfPtxDDsU7T0dV0sM1c8mcxLrF7KPuhoAApaNcc2d9lRxMp3PJg8g==",
+  "success": true,
+  "projectFilePath": "/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/Currying/Currying.fsproj",
+  "expectedPackageFiles": [
+    "/Users/bernardocohen/.nuget/packages/fsharp.core/7.0.0/fsharp.core.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

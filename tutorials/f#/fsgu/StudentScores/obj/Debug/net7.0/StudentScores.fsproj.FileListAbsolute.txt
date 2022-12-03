@@ -1,3 +1,7 @@
+/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.fsproj.AssemblyReference.cache
+/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.AssemblyInfoInputs.cache
+/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.AssemblyInfo.fs
+/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.fsproj.CoreCompileInputs.cache
 /Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/bin/Debug/net7.0/StudentScores
 /Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/bin/Debug/net7.0/StudentScores.deps.json
 /Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/bin/Debug/net7.0/StudentScores.runtimeconfig.json
@@ -17,10 +21,6 @@
 /Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/bin/Debug/net7.0/tr/FSharp.Core.resources.dll
 /Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/bin/Debug/net7.0/zh-Hans/FSharp.Core.resources.dll
 /Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/bin/Debug/net7.0/zh-Hant/FSharp.Core.resources.dll
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.fsproj.AssemblyReference.cache
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.AssemblyInfoInputs.cache
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.AssemblyInfo.fs
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.fsproj.CoreCompileInputs.cache
 /Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.fsproj.CopyComplete
 /Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/StudentScores.dll
 /Users/bernardocohen/repos/MyLearningJourney/tutorials/f#/fsgu/StudentScores/obj/Debug/net7.0/refint/StudentScores.dll

@@ -1,63 +1,8 @@
 ﻿open System
 open System.IO
+open StudentScores
 
-module Float =
-    let tryFromString s =
-        if s = "N/A" then
-            None
-        else
-            Some (float s)
-
-    //let fromStringOr50 s =
-    //    if s = "N/A" then
-    //        50.0;
-    //    else
-    //        float s
-
-    //let fromStringOr50 s =
-    //    s
-    //    |> tryFromString
-    //    |> Option.defaultValue 50.0
-    let fromStringOr d s =
-        s
-        |> tryFromString
-        |> Option.defaultValue d
-
-type Student =
-    {
-        Name: string
-        Id: string
-        MeanScore:float
-        MinScore:float
-        MaxScore:float
-    }
-
-module Student =
-    let fromString(s:string)=
-        let elements = s.Split('\t')
-        let name = elements.[0]
-        let id = elements.[1]
-        let scores =
-            elements
-            |> Array.skip 2
-            //|> Array.map float
-            //|> Array.choose Float.tryFromString
-            //|> Array.map Float.fromStringOr50
-            |> Array.map (Float.fromStringOr 50.0)
-        let meanScore = scores|>Array.average
-        let minScore = scores|>Array.min
-        let maxScore = scores|>Array.max
-        {
-            Name=name
-            Id=id
-            MeanScore=meanScore
-            MinScore=minScore
-            MaxScore=maxScore
-        }
-
-    let printSummary(student:Student)=
-        printfn "%s\t\t%s\t%0.1f\t%0.1f\t%0.1f" student.Name student.Id student.MinScore student.MaxScore student.MeanScore
-
+//Tuple in f# x*y -> (x,y)
 
 let printMeanScore (row : string) = 
     let elements = row.Split('\t')
@@ -105,15 +50,15 @@ let summarizeWithRecord filePath =
     |>Array.sortByDescending (fun student -> student.MeanScore)
     |> Array.iter Student.printSummary
 
-let summarizeWithRecordByName filePath = 
-    let rows = File.ReadAllLines filePath
-    let mutable studentCount = (rows |> Array.length)-1
-    printfn "Student count %i" studentCount
-    rows
-    |> Array.skip 1
-    |> Array.map Student.fromString
-    |> Array.sortBy (fun student -> student.Name)
-    |> Array.iter Student.printSummary
+//let summarizeWithRecordByName filePath = 
+//    let rows = File.ReadAllLines filePath
+//    let mutable studentCount = (rows |> Array.length)-1
+//    printfn "Student count %i" studentCount
+//    rows
+//    |> Array.skip 1
+//    |> Array.map Student.fromString
+//    |> Array.sortBy (fun student -> student.Name)
+//    |> Array.iter Student.printSummary
 
 [<EntryPoint>]
 let main argv =
@@ -126,7 +71,7 @@ let main argv =
             printfn "Processing %s" filePath
             summarizeWithRecord filePath
             printfn "\n=================\n"
-            summarizeWithRecordByName filePath
+            //summarizeWithRecordByName filePath
             0
         else
             printfn "The file %s does not exists." filePath
