@@ -46,7 +46,7 @@ result_data FX1::evaluate_data_and_premium() const{
 
 	for (int j = 0; j<M-1; j++){
 		for (int i = 1; i<N-1; i++){
-			u[i][j+1] = alpha*u[i-1][j] + (1 - 2*alpha)*u[i][j] + alpha*u[i-1][j];
+			u[i][j+1] = alpha*u[i+1][j] + (1 - 2*alpha)*u[i][j] + alpha*u[i-1][j];
 		}
 	}
 
