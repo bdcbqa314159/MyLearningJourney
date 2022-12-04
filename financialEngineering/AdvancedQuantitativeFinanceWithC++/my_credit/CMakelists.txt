@@ -1,0 +1,17 @@
+file(GLOB my_credit_headers include/my_credit/**.hpp)
+file(GLOB my_credit_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${my_credit_headers}
+    ${my_credit_sources}
+    include/my_credit_lib
+)
+
+set(RANDOM_INCLUDE ../my_random/include)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(my_credit
+    ${SOURCE_FILES})
+
+target_include_directories(my_credit PUBLIC include ${RANDOM_INCLUDE})

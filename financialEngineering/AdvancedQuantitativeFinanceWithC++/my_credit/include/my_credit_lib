@@ -1,0 +1,7 @@
+#ifndef MY_CREDIT_LIBRARY_H
+#define MY_CREDIT_LIBRARY_H
+
+#include "my_credit/cr1.hpp"
+// #include "my_credit/credit2.hpp"
+
+#endif
