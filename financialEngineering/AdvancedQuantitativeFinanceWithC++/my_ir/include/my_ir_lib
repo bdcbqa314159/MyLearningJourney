@@ -1,0 +1,7 @@
+#ifndef MY_ir_LIBRARY_H
+#define MY_ir_LIBRARY_H
+
+#include "my_ir/ir1.hpp"
+//#include "my_ir/ir2.hpp"
+
+#endif

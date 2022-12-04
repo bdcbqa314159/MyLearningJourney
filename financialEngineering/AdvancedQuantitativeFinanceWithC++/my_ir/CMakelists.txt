@@ -1,0 +1,18 @@
+file(GLOB my_ir_headers include/my_ir/**.hpp)
+file(GLOB my_ir_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${my_ir_headers}
+    ${my_ir_sources}
+    include/my_ir_lib
+)
+
+set(RANDOM_INCLUDE ../my_random/include)
+set(LINALG_INCLUDE ../my_linalg/include)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(my_ir
+    ${SOURCE_FILES})
+
+target_include_directories(my_ir PUBLIC include ${RANDOM_INCLUDE} ${LINALG_INCLUDE})

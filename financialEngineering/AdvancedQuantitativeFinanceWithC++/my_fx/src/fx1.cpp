@@ -39,7 +39,11 @@ result_data FX1::evaluate_data_and_premium() const{
 
 	for (int j = 1; j<M; j++){
 		u[0][j] = 0.;
-		u[N-1][j] = u[N-1][0];
+
+		if (barrier)
+			u[N-1][j] = 0.;
+		else
+			u[N-1][j] = u[N-1][0];
 	}
 
 // COMPUTE FORWARD DIFFERENCE

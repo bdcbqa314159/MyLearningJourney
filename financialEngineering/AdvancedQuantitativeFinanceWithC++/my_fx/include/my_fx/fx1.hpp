@@ -27,16 +27,21 @@ class FX1{
 public:
 	FX1(){}
 
-	FX1(double T, double K, double S0, double sigma, double r, double dt, double dx, int N, int M):
-	T(T), K(K), S0(S0), sigma(sigma), r(r), dt(dt), dx(dx), N(N), M(M){}
+	FX1(double T, double K, double S0, double sigma, double r, double dt, double dx, int N, int M, bool barrier=false):
+	T(T), K(K), S0(S0), sigma(sigma), r(r), dt(dt), dx(dx), N(N), M(M), barrier(barrier){}
 
 	result_data get_data_and_premium() const{
 		return evaluate_data_and_premium();
 	}
 
+	void set_barrier(bool newBarrier){
+		this->barrier = newBarrier;
+	}
+
 private:
 	double T{0.5}, K{75}, S0{75}, sigma{0.3}, r{0.05}, dt{0.1}, dx{0.5};
 	int N{5}, M{6};
+	bool barrier{false};
 
 	result_data evaluate_data_and_premium() const;
 };
