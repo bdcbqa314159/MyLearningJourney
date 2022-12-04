@@ -1,4 +1,4 @@
-#include "my_random/random.hpp"
+#include "my_random_lib"
 #include <iostream>
 #include <cmath>
 

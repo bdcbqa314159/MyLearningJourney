@@ -26,7 +26,7 @@ public:
 	}
 
 	IR(double K, double alpha, double sigma, 
-		double dT, int N, int M): notional(notional), K(K), alpha(alpha), sigma(sigma),dT(dT), N(N),M(M){
+		double dT, int N, int M): K(K), alpha(alpha), sigma(sigma),dT(dT), N(N),M(M){
 
 	}
 
@@ -37,7 +37,7 @@ public:
 
 
 private:
-	double notional{}, K(0.05), alpha{0.5}, sigma{0.15}, dT{0.5};
+	double notional{}, K{0.05}, alpha{0.5}, sigma{0.15}, dT{0.5};
 	int N{4}, M{10000};
 
 	IR_results run_LIBOR_simulations() const;

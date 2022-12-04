@@ -1,0 +1,6 @@
+#ifndef MY_RANDOM_LIBRARY_H
+#define MY_RANDOM_LIBRARY_H
+
+#include "my_random/random.hpp"
+
+#endif
