@@ -64,13 +64,29 @@ IR_results IR::run_LIBOR_simulations() const{
 		V[nsim] = 0.;
 
 		for (int i = 1; i<N+2; i++){
-			diff = notional*alpha*(L[i-1][i-1] -K);
-			FV[i] = diff;
+
+			if (cap){
+				diff = L[i-1][i-1] -K;
+				FV[i] = max(diff, 0.);
+			}
+
+			else{
+				diff = notional*alpha*(L[i-1][i-1] -K);
+				FV[i] = diff;
+			}
+			
 
 
 			FVprime[i] = FV[i]*D[i][i-1]/D[N+1][i-1];
 
-			V[nsim]+=FVprime[i]*D[i][0];
+			if (cap){
+				V[nsim]+=FVprime[i];
+			}
+
+			else{
+				V[nsim]+=FVprime[i]*D[i][0];
+			}
+			
 		} 
 	}
 
@@ -79,7 +95,13 @@ IR_results IR::run_LIBOR_simulations() const{
 	for (int nsim = 0; nsim<M; nsim++)
 		sumPV += V[nsim];
 
-	PV = sumPV/M;
+	if (cap){
+		PV = D[N+1][0] *sumPV/M;
+	}
+	else{
+		PV = sumPV/M;	
+	}
+	
 
 	IR_results results(V,PV);
 

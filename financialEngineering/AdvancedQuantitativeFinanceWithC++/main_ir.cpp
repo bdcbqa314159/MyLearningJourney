@@ -26,6 +26,17 @@ int main()
         cout<<"simIRS["<<nsim<<"] = "<<results.datapoints[nsim]<<endl;
 
     cout<<"IRS PV = "<<results.value<<endl;
+
+
+    cout<<"Working with a cap"<<endl;
+
+    IR ir2(0.05, 0.5, 0.15,0.5,4,1000, true);
+    auto results2 = ir2.get_simulation_data();
+    auto sz2 = results2.datapoints.size();
+    for (int nsim = 0; nsim<sz2; nsim++)
+        cout<<"simIRS["<<nsim<<"] = "<<results2.datapoints[nsim]<<endl;
+
+    cout<<"IRS cap PV = "<<results2.value<<endl;
 	
 	return 0;
 }
