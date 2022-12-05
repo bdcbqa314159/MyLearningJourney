@@ -4,11 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Optional.fs" />
-    <Compile Include="Float.fs" />
-    <Compile Include="TestResult.fs" />
-    <Compile Include="Student.fs" />
-    <Compile Include="Summary.fs" />
+    <Compile Include="Point.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
