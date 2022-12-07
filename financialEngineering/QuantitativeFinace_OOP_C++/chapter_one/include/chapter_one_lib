@@ -4,5 +4,7 @@
 #include "chapter_one/review.hpp"
 #include "chapter_one/Matrix.hpp"
 #include "chapter_one/MatrixHierarchy.hpp"
+#include "chapter_one/templateMatrix.hpp"
+#include "chapter_one/functionCall.hpp"
 
 #endif

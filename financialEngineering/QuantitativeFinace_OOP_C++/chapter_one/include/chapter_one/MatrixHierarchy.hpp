@@ -6,6 +6,7 @@
 class Matrix_h
 {
 public:
+
     virtual int rows() const = 0;
     virtual int columns() const = 0;
     virtual double operator()(int i, int j) const = 0;

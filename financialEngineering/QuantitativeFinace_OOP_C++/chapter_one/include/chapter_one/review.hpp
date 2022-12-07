@@ -5,4 +5,6 @@ void message();
 
 void different_types();
 
+void switch_example();
+
 #endif
