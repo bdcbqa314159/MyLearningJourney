@@ -6,7 +6,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 project(Quantitative_Finance_OOP VERSION 0.1.0)
 
-# add_subdirectory(...)
+add_subdirectory(chapter_one)
 add_executable(tester tester.cpp)
 
-# target_link_libraries(...)
+target_link_libraries(tester chapter_one)

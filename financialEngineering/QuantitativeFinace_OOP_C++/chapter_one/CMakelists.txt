@@ -1,0 +1,15 @@
+file(GLOB chapter_one_headers include/chapter_one/**.hpp)
+file(GLOB chapter_one_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${chapter_one_headers}
+    ${chapter_one_sources}
+    include/chapter_one_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(chapter_one
+    ${SOURCE_FILES})
+
+target_include_directories(chapter_one PUBLIC include)
