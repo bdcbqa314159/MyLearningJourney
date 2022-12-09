@@ -15,8 +15,6 @@ public:
     inline operator std::map<T,int>&() { return count_occurences; };
 };
 
-
-
 void workingWithForEach();
 
 

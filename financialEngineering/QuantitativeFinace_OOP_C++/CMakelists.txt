@@ -6,6 +6,41 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 project(Quantitative_Finance_OOP VERSION 0.1.0)
 
+# find_package(Boost REQUIRED COMPONENTS)
+find_package(Boost REQUIRED)
+
+# find_package(Threads REQUIRED)
+if(Boost_FOUND)
+    message(STATUS "Boost Found: ${Boost_VERSION}")
+    message(STATUS "Boost Include: ${Boost_INCLUDE_DIRS}")
+    message(STATUS "Boost Libraries: ${Boost_LIBRARIES}")
+    message(STATUS "Boost Libraries path: ${Boost_LIBRARY_DIRS}")
+
+    include_directories(${Boost_INCLUDE_DIRS})
+endif()
+
+add_subdirectory(cmake)
+
+# include(FindPackageHandleStandardArgs)
+# find_package_handle_standard_args(Blitz DEFAULT_MSG
+# BLITZ_INCLUDES BLITZ_LIBRARIES)
+
+# mark_as_advanced(BLITZ_INCLUDES BLITZ_LIBRARIES)
+# message(STATUS "module: " ${CMAKE_MODULE_PATH})
+# message(STATUS "module: " ${CMAKE_PREFIX_PATH})
+# set(blitz_DIR = "/usr/local/Cellar/blitz/1.0.2/lib/cmake")
+# find_package(blitz CONFIG)
+
+# if(BLITZ_FOUND)
+#     message(STATUS "Blitz Found: ${BLITZ_VERSION}")
+#     message(STATUS "Blitz Include: ${BLITZ_INCLUDE_DIRS}")
+#     message(STATUS "Blitz Libraries: ${BLITZ_LIBRARIES}")
+#     message(STATUS "Blitz Libraries path: ${BLITZ_LIBRARY_DIRS}")
+
+#     # include_directories(${Boost_INCLUDE_DIRS})
+# endif()
+
+
 add_subdirectory(chapter_one)
 add_subdirectory(chapter_two)
 

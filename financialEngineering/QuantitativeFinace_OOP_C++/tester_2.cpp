@@ -16,6 +16,16 @@ int main()
     workingWithLists();
     std::cout<<"==============="<<std::endl;
     workingWithForEach();
+
+    std::cout<<"*****BOOST*****"<<std::endl;
+    workingWithFunctors();
+    workingWithBinding_1();
+    workingWithBinding_2();
+    sharedPointerExample();
+
+    std::cout<<"*****BLITZ*****"<<std::endl;
+    firstTest();
+    slicing();
     
 
     return 0;

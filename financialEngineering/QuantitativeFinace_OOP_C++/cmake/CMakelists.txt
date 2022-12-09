@@ -1,0 +1,16 @@
+set(Blitz_PATH "/usr/local/opt/blitz")
+set(Blitz_DIR "/usr/local/opt/blitz/lib/cmake")
+
+find_package(Blitz REQUIRED)
+
+set(Blitz_INCLUDES ${Blitz_PATH}/include)
+set(Blitz_LIBRARY_DIRS ${Blitz_PATH}/lib)
+
+find_library(Blitz_LIBRARY blitz HINTS ${Blitz_LIBRARY_DIRS})
+
+if(Blitz_FOUND)
+    message(STATUS "Blitz Version " ${Blitz_VERSION})
+    message(STATUS "Blitz Includes" ${Blitz_INCLUDES})
+    message(STATUS "Blitz Libs " ${Blitz_LIBRARY})
+    message(STATUS "Blitz Libs path " ${Blitz_LIBRARY_DIRS})
+endif()
