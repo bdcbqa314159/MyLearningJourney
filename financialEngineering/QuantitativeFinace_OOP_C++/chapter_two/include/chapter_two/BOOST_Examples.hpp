@@ -4,10 +4,10 @@
 #include <boost/function.hpp>
 #include <boost/bind/bind.hpp>
 #include <boost/mem_fn.hpp>
-#include <boost/shared_ptr.hpp>
 #include <memory>
 
 // #include <boost/bind.hpp> -> it does not work anymore
+// #include <boost/shared_ptr.hpp> -> better use std::shared_ptr from now.
 
 void calculate_and_print(boost::function<double(int x, int y)> g);
 
