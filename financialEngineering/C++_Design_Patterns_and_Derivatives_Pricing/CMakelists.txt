@@ -2,8 +2,14 @@ cmake_minimum_required(VERSION 3.0.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 project(Design_Patterns_Joshi_Cpp VERSION 0.1.0)
 
+add_subdirectory(data)
+add_subdirectory(monte_carlo)
+add_subdirectory(random)
+
 add_executable(tester main.cpp)
+
+target_link_libraries(tester monte_carlo random data)

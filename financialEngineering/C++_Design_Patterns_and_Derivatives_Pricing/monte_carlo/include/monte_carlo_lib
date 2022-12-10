@@ -1,0 +1,7 @@
+#ifndef MONTE_CARLO_LIBRARY_H
+#define MONTE_CARLO_LIBRARY_H
+
+#include "monte_carlo/testingMC.hpp"
+#include "monte_carlo/SimpleMonteCarlo.hpp"
+
+#endif

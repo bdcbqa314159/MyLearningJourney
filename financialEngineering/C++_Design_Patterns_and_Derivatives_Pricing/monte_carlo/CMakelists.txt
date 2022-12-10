@@ -1,0 +1,17 @@
+file(GLOB monte_carlo_headers include/monte_carlo/**.hpp)
+file(GLOB monte_carlo_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${monte_carlo_headers}
+    ${monte_carlo_sources}
+    include/monte_carlo_lib
+)
+
+set(DATA_INCLUDE ../data/include)
+set(RANDOM_INCLUDE ../random/include)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(monte_carlo
+    ${SOURCE_FILES})
+
+target_include_directories(monte_carlo PUBLIC include ${RANDOM_INCLUDE} ${DATA_INCLUDE})

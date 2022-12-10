@@ -1,0 +1,7 @@
+#ifndef RANDOM_LIBRARY_H
+#define RANDOM_LIBRARY_H
+
+#include "random/testingRandom.hpp"
+#include "random/SimpleRandom.hpp"
+
+#endif

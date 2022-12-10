@@ -1,0 +1,16 @@
+file(GLOB random_headers include/random/**.hpp)
+file(GLOB random_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${random_headers}
+    ${random_sources}
+    include/random_lib
+)
+
+# set(RANDOM_INCLUDE ../my_random/include)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(random
+    ${SOURCE_FILES})
+
+target_include_directories(random PUBLIC include)

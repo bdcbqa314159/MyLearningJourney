@@ -1,0 +1,15 @@
+file(GLOB data_headers include/data/**.hpp)
+file(GLOB data_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${data_headers}
+    ${data_sources}
+    include/data_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(data
+    ${SOURCE_FILES})
+
+target_include_directories(data PUBLIC include)

@@ -1,0 +1,6 @@
+#ifndef DATA_LIBRARY_H
+#define DATA_LIBRARY_H
+
+#include "data/data.hpp"
+
+#endif
