@@ -6,5 +6,5 @@ The url of the playlist:
 The url of the global channel - Bluefever Software:
     https://www.youtube.com/@BlueFeverSoft
 
-The code is in c, here I will try to adapt it in c++ and implement what I learned in c++ and cmake.
+The code is in c, here I will try to adapt it in c++ and apply what I learned in c++ and cmake.
 The playlist contains 110 videos, it will be long but it will be fun :-).

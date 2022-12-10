@@ -1,0 +1,6 @@
+#ifndef DEFINITIONS_LIBRARY_H
+#define DEFINITIONS_LIBRARY_H
+
+#include "definitions/definitions.hpp"
+
+#endif
