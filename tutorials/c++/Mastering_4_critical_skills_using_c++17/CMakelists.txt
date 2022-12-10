@@ -6,7 +6,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 project(Mastering_4_skills_c++17 VERSION 0.1.0)
 
-# add_subdirectory(my_random)
+add_subdirectory(print)
 add_executable(tester main.cpp)
 
-# target_link_libraries(tester_eq my_random my_equity)
+target_link_libraries(tester print)

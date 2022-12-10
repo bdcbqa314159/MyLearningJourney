@@ -1,0 +1,15 @@
+file(GLOB print_headers include/print/**.hpp)
+file(GLOB print_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${print_headers}
+    ${print_sources}
+    include/print_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(print
+    ${SOURCE_FILES})
+
+target_include_directories(print PUBLIC include)

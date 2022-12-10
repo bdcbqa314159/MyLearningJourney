@@ -1,0 +1,6 @@
+#ifndef PRINT_LIBRARY_H
+#define PRINT_LIBRARY_H
+
+#include "print/printing.hpp"
+
+#endif
