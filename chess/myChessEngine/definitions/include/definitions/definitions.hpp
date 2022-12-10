@@ -132,6 +132,14 @@ enum
     TRUE
 };
 
+inline int FR2SQ(int f, int r)
+{
+    return 10 * r + (21 + f);
+}
+
+extern std::array<int, BRD_SQ_NUM> Sq120ToSq64;
+extern std::array<int, 64> Sq64ToSq120;
+
 void testingDefinitions();
 
 #endif
