@@ -1,0 +1,6 @@
+#ifndef INIT_LIBRARY_H
+#define INIT_LIBRARY_H
+
+#include "init/init.hpp"
+
+#endif

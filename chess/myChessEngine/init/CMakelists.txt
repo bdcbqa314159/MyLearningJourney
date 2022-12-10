@@ -1,0 +1,18 @@
+file(GLOB init_headers include/init/**.hpp)
+file(GLOB init_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${init_headers}
+    ${init_sources}
+    include/init_lib
+)
+
+set(DEFINITIONS_INCLUDE ../definitions/include)
+set(BOARD_INCLUDE ../board/include)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(init
+    ${SOURCE_FILES})
+
+target_include_directories(init PUBLIC include ${DEFINITIONS_INCLUDE} ${BOARD_INCLUDE})

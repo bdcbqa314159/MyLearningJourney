@@ -37,4 +37,5 @@ enum
     BlackQueenCastling = 1
 };
 
+void testingBoard();
 #endif
