@@ -132,9 +132,9 @@ enum
     TRUE
 };
 
-inline int FR2SQ(int f, int r)
+inline int fr_to_sq(int file, int rank)
 {
-    return 10 * r + (21 + f);
+    return 10 * rank + (21 + file);
 }
 
 extern std::array<int, BRD_SQ_NUM> Sq120ToSq64;
