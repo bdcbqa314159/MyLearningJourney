@@ -1,0 +1,17 @@
+file(GLOB pay_off_headers include/pay_off/**.hpp)
+file(GLOB pay_off_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${pay_off_headers}
+    ${pay_off_sources}
+    include/pay_off_lib
+)
+
+# set(DATA_INCLUDE ../data/include)
+# set(RANDOM_INCLUDE ../random/include)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(pay_off
+    ${SOURCE_FILES})
+
+target_include_directories(pay_off PUBLIC include)

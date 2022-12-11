@@ -9,9 +9,10 @@ set(SOURCE_FILES
 
 set(DATA_INCLUDE ../data/include)
 set(RANDOM_INCLUDE ../random/include)
+set(PAY_OFF_INCLUDE ../pay_off/include)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
 add_library(monte_carlo
     ${SOURCE_FILES})
 
-target_include_directories(monte_carlo PUBLIC include ${RANDOM_INCLUDE} ${DATA_INCLUDE})
+target_include_directories(monte_carlo PUBLIC include ${RANDOM_INCLUDE} ${DATA_INCLUDE} ${PAY_OFF_INCLUDE})

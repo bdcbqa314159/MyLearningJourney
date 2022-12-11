@@ -1,0 +1,7 @@
+#ifndef PAY_OFF_LIBRARY_H
+#define PAY_OFF_LIBRARY_H
+
+#include "pay_off/PayOff.hpp"
+#include "pay_off/testingPayOff.hpp"
+
+#endif
