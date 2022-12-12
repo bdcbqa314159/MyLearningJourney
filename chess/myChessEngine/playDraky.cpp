@@ -1,4 +1,6 @@
 #include "init_lib"
+#include "definitions_lib"
+#include "board_lib"
 #include <iostream>
 
 using namespace std;
@@ -10,5 +12,6 @@ int main()
     testingBoard();
 
     AllInit();
+    printingBoards();
     return 0;
 }

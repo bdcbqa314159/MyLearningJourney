@@ -7,6 +7,8 @@ typedef unsigned long long U64;
 #define BRD_SQ_NUM 120
 #define MAX_GAME_MOVES 2048
 
+#include <array>
+
 enum
 {
     EMPTY,

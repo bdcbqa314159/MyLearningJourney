@@ -7,7 +7,6 @@ set(SOURCE_FILES
     include/definitions_lib
 )
 
-# set(RANDOM_INCLUDE ../my_random/include)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
 add_library(definitions

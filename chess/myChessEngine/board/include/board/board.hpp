@@ -2,7 +2,6 @@
 #define BOARD_H
 
 #include "definitions_lib"
-#include <array>
 
 typedef struct
 {

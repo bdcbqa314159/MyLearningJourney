@@ -1,5 +1,9 @@
 #include "init_lib"
 #include <iostream>
+#include <iomanip>
+
+std::array<int, BRD_SQ_NUM> Sq120ToSq64;
+std::array<int, 64> Sq64ToSq120;
 
 void initSq120To64()
 {
@@ -37,4 +41,27 @@ void AllInit()
 {
     std::cout << "From AllInit()" << std::endl;
     initSq120To64();
+}
+
+void printingBoards()
+{
+    for (int index = 0; index < BRD_SQ_NUM; index++)
+    {
+        if (index % 10 == 0)
+            std::cout << std::endl;
+        std::cout << std::right << std::setw(2) << Sq120ToSq64[index] << " ";
+    }
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    for (int index = 0; index < 64; index++)
+    {
+        if (index % 8 == 0)
+            std::cout << std::endl;
+        std::cout << std::right << std::setw(2) << Sq64ToSq120[index] << " ";
+    }
+
+    std::cout << std::endl;
+    std::cout << std::endl;
+    return;
 }
