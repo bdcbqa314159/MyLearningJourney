@@ -1,0 +1,6 @@
+#ifndef TESTING_LIBRARY_H
+#define TESTING_LIBRARY_H
+
+#include "testing/testing.hpp"
+
+#endif

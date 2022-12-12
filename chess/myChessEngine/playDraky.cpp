@@ -1,3 +1,4 @@
+#include "testing_lib"
 #include "init_lib"
 #include "definitions_lib"
 #include "board_lib"
@@ -13,5 +14,6 @@ int main()
 
     AllInit();
     printingBoards();
+
     return 0;
 }

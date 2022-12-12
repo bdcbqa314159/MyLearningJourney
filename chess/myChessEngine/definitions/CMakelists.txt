@@ -7,9 +7,11 @@ set(SOURCE_FILES
     include/definitions_lib
 )
 
+set(TESTING_INCLUDE ../testing/include)
+
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
 add_library(definitions
     ${SOURCE_FILES})
 
-target_include_directories(definitions PUBLIC include)
+target_include_directories(definitions PUBLIC include ${TESTING_INCLUDE})

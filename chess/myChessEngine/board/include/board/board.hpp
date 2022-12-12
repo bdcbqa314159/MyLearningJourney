@@ -26,6 +26,8 @@ typedef struct
 
     std::array<S_UNDO, MAX_GAME_MOVES> historyOfTheGame;
 
+    std::array<std::array<int, 13>, 10> pieceList;
+
 } S_BOARD;
 
 enum

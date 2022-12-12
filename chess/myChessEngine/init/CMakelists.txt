@@ -7,6 +7,7 @@ set(SOURCE_FILES
     include/init_lib
 )
 
+set(TESTING_INCLUDE ../testing/include)
 set(DEFINITIONS_INCLUDE ../definitions/include)
 set(BOARD_INCLUDE ../board/include)
 
@@ -15,4 +16,4 @@ source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 add_library(init
     ${SOURCE_FILES})
 
-target_include_directories(init PUBLIC include ${DEFINITIONS_INCLUDE} ${BOARD_INCLUDE})
+target_include_directories(init PUBLIC include ${TESTING_INCLUDE} ${DEFINITIONS_INCLUDE} ${BOARD_INCLUDE})

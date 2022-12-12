@@ -1,0 +1,17 @@
+file(GLOB testing_headers include/testing/**.hpp)
+file(GLOB testing_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${testing_headers}
+    ${testing_sources}
+    include/testing_lib
+)
+
+# set(DEFINITIONS_INCLUDE ../definitions/include)
+# set(BOARD_INCLUDE ../board/include)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(testing
+    ${SOURCE_FILES})
+
+target_include_directories(testing PUBLIC include)

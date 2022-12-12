@@ -6,9 +6,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 project(draky VERSION 0.1.0)
 
+add_subdirectory(testing)
 add_subdirectory(definitions)
 add_subdirectory(board)
 add_subdirectory(init)
 add_executable(chess playDraky.cpp)
 
-target_link_libraries(chess definitions board init)
+target_link_libraries(chess testing definitions board init)
