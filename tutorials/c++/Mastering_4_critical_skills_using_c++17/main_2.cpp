@@ -1,16 +1,13 @@
 #include <iostream>
-#include "data_type_lib"
+#include "operators_lib"
 
 using namespace std;
 
 int main()
 {
     std::cout << "Working with Udemy c++17 tutorial" << std::endl;
-    someTest();
 
-    // easyProblems();
-    // mediumProblems();
-    hardProblems();
+    testingOperator();
 
     return 0;
 }

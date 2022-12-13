@@ -1,0 +1,6 @@
+#ifndef OPERATORS_H
+#define OPERATORS_H
+
+#include "operators/workingWithOperators.hpp"
+
+#endif
