@@ -1,0 +1,6 @@
+#ifndef DATA_TYPE_H
+#define DATA_TYPE_H
+
+#include "data_type/declaringVariables.hpp"
+
+#endif

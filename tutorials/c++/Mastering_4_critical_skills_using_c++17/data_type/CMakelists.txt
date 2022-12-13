@@ -1,0 +1,15 @@
+file(GLOB data_type_headers include/data_type/**.hpp)
+file(GLOB data_type_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${data_type_headers}
+    ${data_type_sources}
+    include/data_type_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(data_type
+    ${SOURCE_FILES})
+
+target_include_directories(data_type PUBLIC include)

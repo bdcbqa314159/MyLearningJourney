@@ -13,6 +13,8 @@ add_subdirectory(random)
 
 add_executable(tester main.cpp)
 add_executable(tester_no_2 chapter_2.cpp)
+add_executable(tester_no_3 chapter_3.cpp)
 
 target_link_libraries(tester pay_off monte_carlo random data)
 target_link_libraries(tester_no_2 pay_off monte_carlo random data)
+target_link_libraries(tester_no_3 pay_off monte_carlo random data)

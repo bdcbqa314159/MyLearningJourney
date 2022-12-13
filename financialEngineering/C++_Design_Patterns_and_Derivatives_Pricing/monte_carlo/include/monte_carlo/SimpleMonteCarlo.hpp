@@ -6,7 +6,10 @@ double simpleMonteCarlo(double expiry, double strike, double spot, double vol, d
 
 double simpleMonteCarlo2(const PayOff_ &thePayOff, double expiry, double spot, double vol, double r, unsigned long numberOfPaths);
 
+double simpleMonteCarlo3(const PayOff_1 &thePayOff, double expiry, double spot, double vol, double r, unsigned long numberOfPaths);
+
 void testingSimpleMonteCarlo();
 void testingSimpleMonteCarlo2();
+void testingSimpleMonteCarlo3();
 
 #endif

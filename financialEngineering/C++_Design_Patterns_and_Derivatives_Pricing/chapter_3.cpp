@@ -6,7 +6,7 @@ int main()
 {
     std::cout << "Working with Joshi's famous book, modern c++ and cmake." << std::endl;
 
-    std::cout << "Chapter three single test : " << std::endl;
+    std::cout << "Chapter two single test : " << std::endl;
     testingPayOff();
-    testingSimpleMonteCarlo3();
+    testingSimpleMonteCarlo2();
 }

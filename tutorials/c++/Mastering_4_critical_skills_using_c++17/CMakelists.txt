@@ -7,6 +7,12 @@ set(CMAKE_CXX_EXTENSIONS ON)
 project(Mastering_4_skills_c++17 VERSION 0.1.0)
 
 add_subdirectory(print)
+add_subdirectory(data_type)
+
 add_executable(tester main.cpp)
 
 target_link_libraries(tester print)
+
+add_executable(datas main_1.cpp)
+
+target_link_libraries(datas data_type)
