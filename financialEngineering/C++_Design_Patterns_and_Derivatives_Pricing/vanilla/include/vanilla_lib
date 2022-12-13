@@ -1,0 +1,7 @@
+#ifndef VANILLA_LIBRARY_H
+#define VANILLA_LIBRARY_H
+
+#include "vanilla/testingVanilla.hpp"
+#include "vanilla/Vanilla.hpp"
+
+#endif

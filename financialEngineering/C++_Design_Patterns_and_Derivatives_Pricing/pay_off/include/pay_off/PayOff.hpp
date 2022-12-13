@@ -49,7 +49,7 @@ private:
     double strike;
 };
 
-class PayOffDoubleDigital_1
+class PayOffDoubleDigital_1 : public PayOff_1
 {
 public:
     PayOffDoubleDigital_1(double lowerLevel, double upperLevel);

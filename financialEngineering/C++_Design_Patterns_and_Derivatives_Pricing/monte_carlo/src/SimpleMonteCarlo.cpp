@@ -161,3 +161,40 @@ void testingSimpleMonteCarlo3()
     std::cout << simpleMC << std::endl;
     std::cout << " is PV = " << result << std::endl;
 }
+
+double simpleMonteCarlo4(const VanillaOption_ &theOption, double spot, double vol, double r, unsigned long numberOfPaths)
+{
+    double expiry = theOption.getExpiry();
+    double variance = vol * vol * expiry;
+
+    double rootVariance = std::sqrt(variance);
+
+    double itoCorrection = -0.5 * variance;
+
+    double movedSpot = spot * std::exp(r * expiry + itoCorrection);
+    double thisSpot{}, runningSum{};
+
+    for (unsigned long i = 0; i < numberOfPaths; i++)
+    {
+        double thisGaussian = getOneGaussianBoxMuller();
+        thisSpot = movedSpot * std::exp(rootVariance * thisGaussian);
+        double thisPayOff = theOption.OptionPayOff(thisSpot);
+        runningSum += thisPayOff;
+    }
+
+    double mean = runningSum / numberOfPaths;
+    mean *= std::exp(-r * expiry);
+    return mean;
+}
+
+void testingSimpleMonteCarlo4()
+{
+    double expiry{1}, low{0.4}, up{1}, spot(0.56), vol{0.005}, r(0.1);
+    unsigned long numberOfPaths{10};
+
+    PayOffDoubleDigital_1 thePayOff(low, up);
+    VanillaOption_ theOption(thePayOff, expiry);
+
+    double result = simpleMonteCarlo4(theOption, spot, vol, r, numberOfPaths);
+    std::cout << "the result is :" << result << std::endl;
+}

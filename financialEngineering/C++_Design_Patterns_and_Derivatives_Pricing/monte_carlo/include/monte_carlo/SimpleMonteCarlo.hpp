@@ -1,6 +1,7 @@
 #ifndef SIMPLE_MONTE_CARLO_H
 #define SIMPLE_MONTE_CARLO_H
-#include "pay_off_lib"
+
+#include "vanilla_lib"
 
 double simpleMonteCarlo(double expiry, double strike, double spot, double vol, double r, unsigned long numberOfPaths);
 
@@ -8,8 +9,11 @@ double simpleMonteCarlo2(const PayOff_ &thePayOff, double expiry, double spot, d
 
 double simpleMonteCarlo3(const PayOff_1 &thePayOff, double expiry, double spot, double vol, double r, unsigned long numberOfPaths);
 
+double simpleMonteCarlo4(const VanillaOption_ &theOption, double spot, double vol, double r, unsigned long numberOfPaths);
+
 void testingSimpleMonteCarlo();
 void testingSimpleMonteCarlo2();
 void testingSimpleMonteCarlo3();
+void testingSimpleMonteCarlo4();
 
 #endif

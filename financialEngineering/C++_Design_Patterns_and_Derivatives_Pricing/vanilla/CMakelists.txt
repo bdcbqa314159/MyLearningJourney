@@ -1,0 +1,18 @@
+file(GLOB vanilla_headers include/vanilla/**.hpp)
+file(GLOB vanilla_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${vanilla_headers}
+    ${vanilla_sources}
+    include/vanilla_lib
+)
+
+# set(DATA_INCLUDE ../data/include)
+# set(RANDOM_INCLUDE ../random/include)
+set(PAY_OFF_INCLUDE ../pay_off/include)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(vanilla
+    ${SOURCE_FILES})
+
+target_include_directories(vanilla PUBLIC include ${PAY_OFF_INCLUDE})
