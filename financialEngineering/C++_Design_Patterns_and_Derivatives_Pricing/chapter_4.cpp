@@ -1,6 +1,7 @@
 #include <iostream>
 #include "vanilla_lib"
 #include "monte_carlo_lib"
+#include "parameter_lib"
 
 int main()
 {
@@ -10,4 +11,6 @@ int main()
     testingVanilla();
 
     testingSimpleMonteCarlo6();
+    testingParameter();
+    testingSimpleMonteCarlo7();
 }
