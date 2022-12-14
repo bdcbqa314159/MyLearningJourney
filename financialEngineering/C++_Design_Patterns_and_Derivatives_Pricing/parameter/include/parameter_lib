@@ -1,0 +1,7 @@
+#ifndef PARAMETER_LIBRARY_H
+#define PARAMETER_LIBRARY_H
+
+#include "parameter/testingParameter.hpp"
+#include "parameter/Parameters.hpp"
+
+#endif

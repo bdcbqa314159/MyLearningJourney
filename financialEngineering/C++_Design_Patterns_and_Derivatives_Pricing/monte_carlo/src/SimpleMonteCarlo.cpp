@@ -86,3 +86,43 @@ void testingSimpleMonteCarlo6()
     double result = simpleMonteCarlo6(theOption, spot, vol, r, numberOfPaths);
     std::cout << "the result is :" << result << std::endl;
 }
+
+double simpleMonteCarlo7(const VanillaOption &theOption, double spot, const Parameters &vol, const Parameters &r, unsigned long numberOfPaths)
+{
+    double expiry = theOption.getExpiry();
+    double variance = vol.integralSquare(0, expiry);
+    double rootVariance = std::sqrt(variance);
+
+    double itoCorrection = -0.5 * variance;
+    double movedSpot = spot * std::exp(r.integral(0, expiry) + itoCorrection);
+
+    double thisSpot{}, runningSum{};
+
+    for (unsigned long i = 0; i < numberOfPaths; i++)
+    {
+        double thisGaussian = getOneGaussianBoxMuller();
+        thisSpot = movedSpot * exp(rootVariance * thisGaussian);
+        double thisPayOff = theOption.optionPayOff(thisSpot);
+
+        runningSum += thisPayOff;
+    }
+
+    double mean = runningSum / numberOfPaths;
+    mean *= std::exp(-r.integral(0, expiry));
+    return mean;
+}
+
+void testingSimpleMonteCarlo7()
+{
+    double expiry{1}, low{0.4}, up{1}, spot(0.56), vol{0.005}, r(0.1);
+    unsigned long numberOfPaths{10};
+
+    PayOffDoubleDigital thePayOff(low, up);
+    VanillaOption theOption(thePayOff, expiry);
+
+    ParametersConstant volParam(vol);
+    ParametersConstant rParam(r);
+
+    double result = simpleMonteCarlo7(theOption, spot, volParam, rParam, numberOfPaths);
+    std::cout << "the result is :" << result << std::endl;
+}
