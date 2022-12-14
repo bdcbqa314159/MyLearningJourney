@@ -1,0 +1,15 @@
+file(GLOB selection_headers include/selection/**.hpp)
+file(GLOB selection_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${selection_headers}
+    ${selection_sources}
+    include/selection_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(selection
+    ${SOURCE_FILES})
+
+target_include_directories(selection PUBLIC include)
