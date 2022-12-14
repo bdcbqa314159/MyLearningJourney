@@ -9,4 +9,6 @@ int main()
     std::cout << "Chapter four single test : " << std::endl;
     testingVanilla();
     testingSimpleMonteCarlo4();
+    testingSimpleMonteCarlo5();
+    testingSimpleMonteCarlo6();
 }
