@@ -8,5 +8,4 @@ int main()
 
     std::cout << "Chapter two single test : " << std::endl;
     testingPayOff();
-    testingSimpleMonteCarlo2();
 }
