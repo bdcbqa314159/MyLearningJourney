@@ -5,6 +5,54 @@
 
 using namespace std;
 
+class time_
+{
+public:
+    time_(int duration) : duration(duration), dt(vector<int>(duration))
+    {
+        for (int i = 0; i < duration; i++)
+            dt[i] = i + 1;
+    }
+    int duration{};
+    vector<int> dt{};
+};
+
+class creditRates
+{
+public:
+    creditRates(int duration) : duration(duration), survP(vector<double>(duration)), defP(vector<double>(duration)) {}
+
+    void operator()(double hazardRate)
+    {
+        defP[0] = hazardRate;
+        survP[0] = 1 - hazardRate;
+
+        for (int i = 1; i < duration; i++)
+        {
+            defP[i] = survP[i - 1] * hazardRate;
+            survP[i] = survP[i - 1] - defP[i];
+        }
+    }
+
+    vector<double> survP{}, defP{};
+    int duration{};
+};
+
+class discountFactors
+{
+public:
+    discountFactors(int duration, double riskFreeRate) : duration(duration), riskFreeRate(riskFreeRate), df(vector<double>(duration))
+    {
+        time_ test(duration);
+        for (int i = 0; i < duration; i++)
+            df[i] = exp(-riskFreeRate * test.dt[i]);
+    }
+
+    vector<double> df{};
+    double riskFreeRate;
+    int duration;
+};
+
 int main()
 {
     cout << "Hey - let's build a cds from a cds." << endl;
