@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+project(cds_from_video VERSION 0.1.0)
+
+# add_subdirectory(data)
+# add_subdirectory(pay_off)
+# add_subdirectory(vanilla)
+# add_subdirectory(monte_carlo)
+# add_subdirectory(random)
+# add_subdirectory(parameter)
+add_executable(cds main.cpp)
+
+# target_link_libraries(tester pay_off monte_carlo random data vanilla parameter)
