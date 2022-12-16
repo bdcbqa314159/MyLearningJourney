@@ -40,12 +40,17 @@ vector<double> operator*(const vector<double> &v1, double lambda)
     return result;
 }
 
-vector<double> operator-(const vector<double> &v1, double lambda)
+vector<double> operator+(const vector<double> &v1, double lambda)
 {
     vector<double> result(v1.size());
     for (int i = 0; i < v1.size(); i++)
         result[i] = v1[i] + lambda;
     return result;
+}
+
+vector<double> operator-(const vector<double> &v1, double lambda)
+{
+    return operator+(v1, -lambda);
 }
 
 class timer
@@ -180,90 +185,9 @@ int main()
     double duration{6};
     // default occur mid-year.
 
-    vector<double> time{1, 2, 3, 4, 5, 6};
+    cout << "========Pricing after watching the video==========" << endl;
 
-    vector<double> prob_default_vec(6);
-    vector<double> prob_survival_vec(6);
-
-    prob_default_vec[0] = probability_of_default;
-    prob_survival_vec[0] = 1 - probability_of_default;
-
-    for (int i = 1; i < 6; i++)
-    {
-        prob_default_vec[i] = prob_survival_vec[i - 1] * probability_of_default;
-        prob_survival_vec[i] = prob_survival_vec[i - 1] - prob_default_vec[i];
-    }
-
-    for (int i = 0; i < 6; i++)
-    {
-        cout << prob_default_vec[i] << " " << prob_survival_vec[i] << endl;
-    }
-
-    vector<double> df(6);
-    for (int i = 0; i < 6; i++)
-        df[i] = exp(-risk_free_rate * time[i]);
-
-    for (double disc_f : df)
-        cout << disc_f << endl;
-
-    vector<double> premium_leg_no_default(6);
-    for (int i = 0; i < 6; i++)
-        premium_leg_no_default[i] = prob_survival_vec[i] * df[i];
-
-    cout << "premium leg no default" << endl;
-    for (auto x : premium_leg_no_default)
-        cout << x << endl;
-
-    cout << "======================" << endl;
-
-    vector<double> df_mid_year(6);
-    for (int i = 0; i < 6; i++)
-        df_mid_year[i] = exp(-risk_free_rate * (time[i] - 0.5));
-
-    vector<double> premium_leg_default(6);
-    for (int i = 0; i < 6; i++)
-        premium_leg_default[i] = 0.5 * prob_default_vec[i] * df_mid_year[i];
-
-    cout << "premium leg default" << endl;
-    for (auto x : premium_leg_default)
-        cout << x << endl;
-
-    cout << "======================" << endl;
-
-    vector<double> recovery_leg(6);
-    for (int i = 0; i < 6; i++)
-        recovery_leg[i] = prob_default_vec[i] * df_mid_year[i] * (1 - recovery_rate);
-
-    cout << "recovery leg default" << endl;
-    for (auto x : recovery_leg)
-        cout << x << endl;
-
-    cout << "======================" << endl;
-
-    double expectedReceivedPremium = accumulate(premium_leg_no_default.begin(), premium_leg_no_default.end(), 0.);
-    double accrual = accumulate(premium_leg_default.begin(), premium_leg_default.end(), 0.);
-
-    cout << "expectedReceivedPremium = " << expectedReceivedPremium << endl;
-
-    double expectedPayableDCF = accumulate(recovery_leg.begin(), recovery_leg.end(), 0.);
-
-    double spread = expectedPayableDCF / (accrual + expectedReceivedPremium);
-
-    cout << "cds price: " << spread * 10000 << endl;
-
-    cout << "========Trying the claibration==========" << endl;
-
-    creditRates myCredit(6);
-
-    myCredit(probability_of_default);
-    // cout << myCredit.defP << endl;
-    // cout << myCredit.survP << endl;
-
-    prototypeCDS myCDS(spread, 6, risk_free_rate, recovery_rate);
-
-    double myHR = myCDS.calibration_HR();
-    cout << myHR << endl;
-
+    creditRates cr(duration);
     timer myTimes(duration);
     discounting myDiscount(risk_free_rate);
     vector<double> dt = myTimes();
@@ -272,13 +196,18 @@ int main()
     vector<double> df_no_def = myDiscount(dt);
     vector<double> df_def = myDiscount(dt_mid);
 
-    creditRates cr(duration);
-    double repricedSpread = cr.giveSpread(myHR, df_no_def, df_def, recovery_rate);
-    cout << repricedSpread << endl;
+    double spread = cr.giveSpread(probability_of_default, df_no_def, df_def, recovery_rate);
+    cout << "cds price as in the video: " << spread << endl;
 
-    double repricedSpread_original = cr.giveSpread(probability_of_default, df_no_def, df_def, recovery_rate);
+    prototypeCDS myCDS(spread, duration, risk_free_rate, recovery_rate);
 
-    cout << repricedSpread_original << endl;
+    double myHR = myCDS.calibration_HR();
+    cout << "hazard rate calibrated: " << myHR << endl;
+    cout << "hazard rate from the video: " << probability_of_default << endl;
+
+    double repricedSpread_original = cr.giveSpread(myHR, df_no_def, df_def, recovery_rate);
+
+    cout << "cds repriced after calibration: " << repricedSpread_original << endl;
 
     return 0;
 }
