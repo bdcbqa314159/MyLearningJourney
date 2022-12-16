@@ -1,0 +1,20 @@
+file(GLOB wrappers_headers include/wrappers/**.hpp)
+file(GLOB wrappers_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${wrappers_headers}
+    ${wrappers_sources}
+    include/wrappers_lib
+)
+
+# set(DATA_INCLUDE ../data/include)
+# set(RANDOM_INCLUDE ../random/include)
+# set(PAY_OFF_INCLUDE ../pay_off/include)
+# set(VANILLA_INCLUDE ../vanilla/include)
+# set(PARAMETER_INCLUDE ../parameter/include)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(wrappers
+    ${SOURCE_FILES})
+
+target_include_directories(wrappers PUBLIC include)

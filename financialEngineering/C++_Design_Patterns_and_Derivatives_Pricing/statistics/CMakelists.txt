@@ -1,0 +1,16 @@
+file(GLOB statistics_headers include/statistics/**.hpp)
+file(GLOB statistics_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${statistics_headers}
+    ${statistics_sources}
+    include/statistics_lib
+)
+
+set(WRAPPERS_INCLUDE ../wrappers/include)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(statistics
+    ${SOURCE_FILES})
+
+target_include_directories(statistics PUBLIC include ${WRAPPERS_INCLUDE})

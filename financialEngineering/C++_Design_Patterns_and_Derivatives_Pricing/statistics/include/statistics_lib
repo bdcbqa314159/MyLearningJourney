@@ -1,0 +1,7 @@
+#ifndef STATISTICS_LIBRARY_H
+#define STATISTICS_LIBRARY_H
+
+#include "statistics/testingStatistics.hpp"
+#include "statistics/Statistics.hpp"
+
+#endif

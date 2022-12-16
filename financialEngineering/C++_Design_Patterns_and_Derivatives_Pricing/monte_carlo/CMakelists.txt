@@ -12,9 +12,13 @@ set(RANDOM_INCLUDE ../random/include)
 set(PAY_OFF_INCLUDE ../pay_off/include)
 set(VANILLA_INCLUDE ../vanilla/include)
 set(PARAMETER_INCLUDE ../parameter/include)
+set(STATISTICS_INCLUDE ../statistics/include)
+set(WRAPPERS_INCLUDE ../wrappers/include)
+
+
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
 add_library(monte_carlo
     ${SOURCE_FILES})
 
-target_include_directories(monte_carlo PUBLIC include ${RANDOM_INCLUDE} ${DATA_INCLUDE} ${PAY_OFF_INCLUDE} ${VANILLA_INCLUDE} ${PARAMETER_INCLUDE})
+target_include_directories(monte_carlo PUBLIC include ${RANDOM_INCLUDE} ${DATA_INCLUDE} ${PAY_OFF_INCLUDE} ${VANILLA_INCLUDE} ${PARAMETER_INCLUDE} ${STATISTICS_INCLUDE} ${WRAPPERS_INCLUDE})
