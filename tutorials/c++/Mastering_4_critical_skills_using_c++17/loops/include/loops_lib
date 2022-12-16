@@ -1,0 +1,6 @@
+#ifndef LOOPS_LIBRARY_H
+#define LOOPS_LIBRARY_H
+
+#include "loops/looping.hpp"
+
+#endif

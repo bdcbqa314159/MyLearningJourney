@@ -1,0 +1,15 @@
+file(GLOB loops_headers include/loops/**.hpp)
+file(GLOB loops_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${loops_headers}
+    ${loops_sources}
+    include/loops_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(loops
+    ${SOURCE_FILES})
+
+target_include_directories(loops PUBLIC include)

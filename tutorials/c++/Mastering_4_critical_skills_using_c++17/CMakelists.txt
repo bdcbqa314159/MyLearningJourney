@@ -10,6 +10,7 @@ add_subdirectory(print)
 add_subdirectory(data_type)
 add_subdirectory(operators)
 add_subdirectory(selection)
+add_subdirectory(loops)
 
 add_executable(tester main.cpp)
 
@@ -25,3 +26,6 @@ target_link_libraries(operator operators)
 
 add_executable(selection_exe main_3.cpp)
 target_link_libraries(selection_exe selection)
+
+add_executable(looping main_4.cpp)
+target_link_libraries(looping loops)
