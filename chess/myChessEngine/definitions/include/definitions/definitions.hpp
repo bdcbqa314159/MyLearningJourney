@@ -142,6 +142,25 @@ inline int fr_to_sq(int file, int rank)
 extern std::array<int, BRD_SQ_NUM> Sq120ToSq64;
 extern std::array<int, 64> Sq64ToSq120;
 
+extern std::array<U64, 64> setMask;
+extern std::array<U64, 64> clearMask;
+
+inline void clearBit(U64 *bb, int index)
+{
+    *bb &= clearMask[index];
+    return;
+}
+
+inline void setBit(U64 *bb, int index)
+{
+    *bb |= setMask[index];
+    return;
+}
+
+extern std::array<std::array<U64, 13>, 120> pieceKeys;
+extern U64 sideKeys;
+extern std::array<U64, 16> castleKeys;
+
 void testingDefinitions();
 
 #endif

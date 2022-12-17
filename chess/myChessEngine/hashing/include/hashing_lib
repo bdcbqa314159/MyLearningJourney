@@ -1,0 +1,6 @@
+#ifndef HASHING_LIBRARY_H
+#define HASHING_LIBRARY_H
+
+#include "hashing/hashingKeys.hpp"
+
+#endif

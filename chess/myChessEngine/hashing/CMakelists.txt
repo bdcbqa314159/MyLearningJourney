@@ -1,0 +1,17 @@
+file(GLOB hashing_headers include/hashing/**.hpp)
+file(GLOB hashing_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${hashing_headers}
+    ${hashing_sources}
+    include/hashing_lib
+)
+
+set(TESTING_INCLUDE ../testing/include)
+set(DEFINITIONS_INCLUDE ../definitions/include)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(hashing
+    ${SOURCE_FILES})
+
+target_include_directories(hashing PUBLIC include ${TESTING_INCLUDE} ${DEFINITIONS_INCLUDE})

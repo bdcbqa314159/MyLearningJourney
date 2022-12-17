@@ -4,6 +4,54 @@
 
 std::array<int, BRD_SQ_NUM> Sq120ToSq64;
 std::array<int, 64> Sq64ToSq120;
+std::array<U64, 64> setMask;
+std::array<U64, 64> clearMask;
+
+std::array<std::array<U64, 13>, 120> pieceKeys;
+U64 sideKeys;
+std::array<U64, 16> castleKeys;
+
+U64 rand_64()
+{
+    U64 a1 = static_cast<U64>(rand());
+    U64 a2 = static_cast<U64>(rand());
+    U64 a3 = static_cast<U64>(rand());
+    U64 a4 = static_cast<U64>(rand());
+    U64 a5 = static_cast<U64>(rand());
+
+    return a1 + (a2 << 15) + (a3 << 30) + (a4 << 45) + ((a5 & 0xf) << 60);
+}
+
+void initHashKeys()
+{
+    int index = 0;
+    int index_2 = 0;
+    for (index = 0; index < 13; index++)
+    {
+        for (index_2 = 0; index_2 < 120; index_2++)
+            pieceKeys[index][index_2] = rand_64();
+    }
+    sideKeys = rand_64();
+    for (index = 0; index < 16; index++)
+        castleKeys[index] = rand_64();
+}
+
+void initBitMasks()
+{
+    int index = 0;
+
+    for (index = 0; index < 64; index++)
+    {
+        setMask[index] = 0ULL;
+        clearMask[index] = 0ULL;
+    }
+
+    for (index = 0; index < 64; index++)
+    {
+        setMask[index] |= (1ULL << index);
+        clearMask[index] = ~setMask[index];
+    }
+}
 
 void initSq120To64()
 {
@@ -41,6 +89,8 @@ void AllInit()
 {
     std::cout << "From AllInit()" << std::endl;
     initSq120To64();
+    initBitMasks();
+    initHashKeys();
 }
 
 void printingBoards()
