@@ -1,0 +1,15 @@
+file(GLOB linear_algebra_headers include/linear_algebra/**.hpp)
+file(GLOB linear_algebra_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${linear_algebra_headers}
+    ${linear_algebra_sources}
+    include/linear_algebra_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(linear_algebra
+    ${SOURCE_FILES})
+
+target_include_directories(linear_algebra PUBLIC include)

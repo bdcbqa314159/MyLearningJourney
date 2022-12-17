@@ -1,0 +1,6 @@
+#ifndef MATHEMATICS_LIBRARY_H
+#define MATHEMATICS_LIBRARY_H
+
+#include "mathematics/Normals.hpp"
+
+#endif

@@ -1,0 +1,7 @@
+#ifndef LINEAR_ALGEBRA_LIBRARY_H
+#define LINEAR_ALGEBRA_LIBRARY_H
+
+#include "linear_algebra/testingLinearAlgebra.hpp"
+#include "linear_algebra/Arrays.hpp"
+
+#endif

@@ -7,10 +7,14 @@ set(SOURCE_FILES
     include/random_lib
 )
 
-# set(RANDOM_INCLUDE ../my_random/include)
+set(WRAPPERS_INCLUDE ../wrappers/include)
+set(LINEAR_ALGEBRA_INCLUDE ../linear_algebra/include)
+set(MATHEMTICS_INCLUDE ../mathematics/include)
+
+
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
 add_library(random
     ${SOURCE_FILES})
 
-target_include_directories(random PUBLIC include)
+target_include_directories(random PUBLIC include ${WRAPPERS_INCLUDE} ${LINEAR_ALGEBRA_INCLUDE} ${MATHEMTICS_INCLUDE})

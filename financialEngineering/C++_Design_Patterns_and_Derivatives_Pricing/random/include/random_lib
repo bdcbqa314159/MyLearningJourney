@@ -3,5 +3,6 @@
 
 #include "random/testingRandom.hpp"
 #include "random/SimpleRandom.hpp"
+#include "random/Random.hpp"
 
 #endif
