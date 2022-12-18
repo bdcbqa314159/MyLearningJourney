@@ -1,0 +1,17 @@
+file(GLOB matrices_headers include/matrices/**.hpp)
+file(GLOB matrices_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${matrices_headers}
+    ${matrices_sources}
+    include/matrices_lib
+)
+
+set(VECTORS_INCLUDE ../vectors/include)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(matrices
+    ${SOURCE_FILES})
+
+target_include_directories(matrices PUBLIC include ${VECTORS_INCLUDE})

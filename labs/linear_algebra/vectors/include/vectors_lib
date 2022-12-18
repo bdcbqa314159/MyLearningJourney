@@ -1,0 +1,7 @@
+#ifndef VECTORS_LIBRARY_H
+#define VECTORS_LIBRARY_H
+
+#include "vectors/vectors.hpp"
+// #include "linear_algebra/Arrays.hpp"
+
+#endif

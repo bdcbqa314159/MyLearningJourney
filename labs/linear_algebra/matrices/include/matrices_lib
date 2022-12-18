@@ -1,0 +1,7 @@
+#ifndef MATRICES_LIBRARY_H
+#define MATRICES_LIBRARY_H
+
+#include "matrices/matrices.hpp"
+// #include "linear_algebra/Arrays.hpp"
+
+#endif
