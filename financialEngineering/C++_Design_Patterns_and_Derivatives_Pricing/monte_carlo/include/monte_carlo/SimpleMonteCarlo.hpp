@@ -14,9 +14,12 @@ double simpleMonteCarlo7(const VanillaOption &theOption, double spot, const Para
 
 void simpleMonteCarlo8(const VanillaOption &theOption, double spot, const Parameters &vol, const Parameters &r, unsigned long numberOfPaths, Statistics &gatherer);
 
+void simpleMonteCarlo9(const VanillaOption &theOption, double spot, const Parameters &vol, const Parameters &r, unsigned long numberOfPaths, Statistics &gatherer);
+
 void testingSimpleMonteCarlo();
 void testingSimpleMonteCarlo6();
 void testingSimpleMonteCarlo7();
 void testingSimpleMonteCarlo8();
+void testingSimpleMonteCarlo9();
 
 #endif

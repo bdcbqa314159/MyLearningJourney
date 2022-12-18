@@ -101,3 +101,69 @@ void RandomParkMiller::resetDimensionality(unsigned long newDimensionality)
     RandomBase::resetDimensionality(newDimensionality);
     innerGenerator.setSeed(initialSeed);
 }
+
+Antithetic::Antithetic(const Wrapper<RandomBase> &innerGenerator) : RandomBase(*innerGenerator), innerGenerator(innerGenerator)
+{
+    (this->innerGenerator)->reset();
+    oddEven = true;
+    nextVariate.resize(getDimensionality());
+}
+
+std::unique_ptr<RandomBase> Antithetic::clone() const
+{
+    return std::make_unique<Antithetic>(*this);
+}
+
+void Antithetic::getUniforms(Vector &variates)
+{
+    if (oddEven)
+    {
+        innerGenerator->getUniforms(variates);
+        for (unsigned long i = 0; i < getDimensionality(); i++)
+            nextVariate[i] = 1. - variates[i];
+        oddEven = false;
+    }
+
+    else
+    {
+        variates = nextVariate;
+        oddEven = true;
+    }
+}
+
+void Antithetic::setSeed(unsigned long seed)
+{
+    innerGenerator->setSeed(seed);
+    oddEven = true;
+}
+
+void Antithetic::skip(unsigned long numberOfPaths)
+{
+    if (numberOfPaths == 0)
+        return;
+    if (oddEven)
+    {
+        oddEven = false;
+        numberOfPaths--;
+    }
+
+    innerGenerator->skip(numberOfPaths / 2);
+    if (numberOfPaths % 2)
+    {
+        Vector temp(getDimensionality());
+        getUniforms(temp);
+    }
+}
+
+void Antithetic::resetDimensionality(unsigned long newDimensionality)
+{
+    RandomBase::resetDimensionality(newDimensionality);
+    nextVariate.resize(newDimensionality);
+    innerGenerator->resetDimensionality(newDimensionality);
+}
+
+void Antithetic::reset()
+{
+    innerGenerator->reset();
+    oddEven = true;
+}

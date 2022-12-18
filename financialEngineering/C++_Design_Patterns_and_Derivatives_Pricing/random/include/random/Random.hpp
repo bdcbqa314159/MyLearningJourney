@@ -48,8 +48,7 @@ private:
 class RandomParkMiller : public RandomBase
 {
 public:
-    RandomParkMiller() {}
-    RandomParkMiller(unsigned long dimensionality, unsigned long seed);
+    RandomParkMiller(unsigned long dimensionality, unsigned long seed = 1);
     virtual std::unique_ptr<RandomBase> clone() const override;
     ~RandomParkMiller() {}
 
@@ -60,9 +59,26 @@ public:
     virtual void resetDimensionality(unsigned long newDimensionality) override;
 
 private:
-    ParkMiller innerGenerator{};
-    unsigned long initialSeed{1};
-    double reciprocal{};
+    ParkMiller innerGenerator;
+    unsigned long initialSeed;
+    double reciprocal;
+};
+
+class Antithetic : public RandomBase
+{
+public:
+    Antithetic(const Wrapper<RandomBase> &innerGenerator);
+    virtual std::unique_ptr<RandomBase> clone() const override;
+    virtual void getUniforms(Vector &variates) override;
+    virtual void skip(unsigned long numberOfPaths) override;
+    virtual void setSeed(unsigned long seed) override;
+    virtual void resetDimensionality(unsigned long newDimensionality) override;
+    virtual void reset() override;
+
+private:
+    Wrapper<RandomBase> innerGenerator;
+    bool oddEven;
+    Vector nextVariate;
 };
 
 #endif
