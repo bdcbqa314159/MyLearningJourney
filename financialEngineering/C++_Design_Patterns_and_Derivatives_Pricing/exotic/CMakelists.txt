@@ -8,14 +8,17 @@ set(SOURCE_FILES
 )
 
 set(PARAMETER_INCLUDE ../parameter/include)
+set(PAY_OFF_INCLUDE ../pay_off/include)
 set(STATISTICS_INCLUDE ../statistics/include)
 set(WRAPPERS_INCLUDE ../wrappers/include)
 set(PATH_DEPENDENT_INCLUDE ../path_dependent/include)
 set(LINEAR_ALGEBRA_INCLUDE ../linear_algebra/include)
+set(MATHEMATICS_INCLUDE ../mathematics/include)
+set(RANDOM_INCLUDE ../random/include)
 
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
 add_library(exotic
     ${SOURCE_FILES})
 
-target_include_directories(exotic PUBLIC include ${PARAMETER_INCLUDE} ${STATISTICS_INCLUDE} ${WRAPPERS_INCLUDE} ${PATH_DEPENDENT_INCLUDE} ${LINEAR_ALGEBRA_INCLUDE})
+target_include_directories(exotic PUBLIC include ${PARAMETER_INCLUDE} ${STATISTICS_INCLUDE} ${WRAPPERS_INCLUDE} ${PATH_DEPENDENT_INCLUDE} ${LINEAR_ALGEBRA_INCLUDE} ${RANDOM_INCLUDE} ${MATHEMATICS_INCLUDE} ${PAY_OFF_INCLUDE})

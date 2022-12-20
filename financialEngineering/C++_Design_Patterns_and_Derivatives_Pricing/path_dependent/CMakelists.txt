@@ -10,9 +10,10 @@ set(SOURCE_FILES
 # # set(DATA_INCLUDE ../data/include)
 # # set(RANDOM_INCLUDE ../random/include)
 set(LINEAR_ALGEBRA_INCLUDE ../linear_algebra/include)
+set(PAY_OFF_INCLUDE ../pay_off/include)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
 add_library(path_dependent
     ${SOURCE_FILES})
 
-target_include_directories(path_dependent PUBLIC include ${LINEAR_ALGEBRA_INCLUDE})
+target_include_directories(path_dependent PUBLIC include ${LINEAR_ALGEBRA_INCLUDE} ${PAY_OFF_INCLUDE})

@@ -4,6 +4,7 @@
 #include <memory>
 #include <vector>
 #include "linear_algebra_lib"
+#include "pay_off_lib"
 
 class CashFlow
 {
@@ -26,6 +27,24 @@ public:
 
 private:
     Vector lookAtTimes;
+};
+
+class PathDependentAsian : public PathDependent
+{
+public:
+    PathDependentAsian(const Vector &lookAtTimes, double deliveryTime, const PayOffBridge &thePayOff);
+    virtual unsigned long maxNumberOfCashFlows() const override;
+    virtual Vector possibleCashFlowTimes() const override;
+
+    virtual unsigned long CashFlows(const Vector &spotValues, std::vector<CashFlow> &generatdCashFlows) const override;
+
+    virtual std::unique_ptr<PathDependent> clone() const override;
+    virtual ~PathDependentAsian() {}
+
+private:
+    double deliveryTime;
+    PayOffBridge thePayOff;
+    unsigned long numberOfTimes;
 };
 
 #endif

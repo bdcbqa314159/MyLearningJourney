@@ -2,5 +2,6 @@
 #define TESTING_EXOTIC_H
 
 void testingExotic();
+void testingBSEngine();
 
 #endif

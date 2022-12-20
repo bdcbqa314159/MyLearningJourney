@@ -1,4 +1,5 @@
 #include "linear_algebra_lib"
+#include <numeric>
 
 Vector operator*(double lambda, const Vector &vector)
 {
@@ -71,4 +72,9 @@ void Vector::resize(size_t newDimension)
 {
     dimension = newDimension;
     data.resize(newDimension);
+}
+
+double Vector::sum() const
+{
+    return std::accumulate(data.begin(), data.end(), 0.);
 }

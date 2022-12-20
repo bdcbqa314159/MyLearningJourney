@@ -29,6 +29,8 @@ public:
 
     double &operator[](size_t index);
 
+    double sum() const;
+
     size_t size() const;
 
     void resize(size_t newDimension);
