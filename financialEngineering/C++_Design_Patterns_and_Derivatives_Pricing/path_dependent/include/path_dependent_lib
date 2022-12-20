@@ -1,0 +1,7 @@
+#ifndef PATH_DEPENDENT_LIBRARY_H
+#define PATH_DEPENDENT_LIBRARY_H
+
+#include "path_dependent/testingPathDependent.hpp"
+#include "path_dependent/PathDependent.hpp"
+
+#endif

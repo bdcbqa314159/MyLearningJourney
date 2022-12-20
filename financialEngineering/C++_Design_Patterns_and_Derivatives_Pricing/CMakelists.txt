@@ -16,6 +16,8 @@ add_subdirectory(statistics)
 add_subdirectory(wrappers)
 add_subdirectory(linear_algebra)
 add_subdirectory(mathematics)
+add_subdirectory(path_dependent)
+add_subdirectory(exotic)
 
 add_executable(tester main.cpp)
 add_executable(tester_no_2 chapter_2.cpp)
@@ -23,6 +25,7 @@ add_executable(tester_no_3 chapter_3.cpp)
 add_executable(tester_no_4 chapter_4.cpp)
 add_executable(tester_no_5 chapter_5.cpp)
 add_executable(tester_no_6 chapter_6.cpp)
+add_executable(exotics chapter_7.cpp)
 
 target_link_libraries(tester mathematics wrappers pay_off monte_carlo random data vanilla parameter statistics linear_algebra)
 target_link_libraries(tester_no_2 mathematics wrappers pay_off monte_carlo random data vanilla parameter statistics linear_algebra)
@@ -31,3 +34,5 @@ target_link_libraries(tester_no_4 mathematics wrappers pay_off monte_carlo rando
 target_link_libraries(tester_no_5 mathematics wrappers pay_off monte_carlo random data vanilla parameter statistics linear_algebra)
 
 target_link_libraries(tester_no_6 mathematics wrappers pay_off monte_carlo random data vanilla parameter statistics linear_algebra)
+
+target_link_libraries(exotics path_dependent exotic mathematics wrappers pay_off monte_carlo random data vanilla parameter statistics linear_algebra)

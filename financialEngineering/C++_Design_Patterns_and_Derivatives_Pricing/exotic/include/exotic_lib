@@ -1,0 +1,7 @@
+#ifndef EXOTIC_LIBRARY_H
+#define EXOTIC_LIBRARY_H
+
+#include "exotic/testingExotic.hpp"
+#include "exotic/ExoticEngine.hpp"
+
+#endif
