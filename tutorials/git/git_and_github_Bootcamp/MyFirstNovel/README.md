@@ -1,1 +1,0 @@
-# Never initialize git into another git repository!
