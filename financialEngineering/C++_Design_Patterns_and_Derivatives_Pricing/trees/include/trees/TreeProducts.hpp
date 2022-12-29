@@ -60,8 +60,11 @@ private:
     double spot, volatility, time;
     Parameters r, d;
     unsigned long steps;
-    std::vector < std::vector < pair < double, double >>>> theTree;
+    bool treeBuilt;
+    std::vector<std::vector<std::pair<double, double>>> theTree;
     Vector discounts;
 };
+
+void testingTreePricer();
 
 #endif

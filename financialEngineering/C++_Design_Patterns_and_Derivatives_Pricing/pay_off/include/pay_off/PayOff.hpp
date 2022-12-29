@@ -49,6 +49,18 @@ private:
     double lowerStrike, upperStrike;
 };
 
+class PayOffForward : public PayOff
+{
+public:
+    PayOffForward(double strike);
+    virtual double operator()(double spot) const;
+    virtual ~PayOffForward() {}
+    virtual std::unique_ptr<PayOff> clone() const;
+
+private:
+    double strike;
+};
+
 class PayOffBridge
 {
 public:

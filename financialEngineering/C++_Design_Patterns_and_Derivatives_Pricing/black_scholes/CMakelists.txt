@@ -1,0 +1,17 @@
+file(GLOB black_scholes_headers include/black_scholes/**.hpp)
+file(GLOB black_scholes_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${black_scholes_headers}
+    ${black_scholes_sources}
+    include/black_scholes_lib
+)
+
+set(MATHEMATICS_INCLUDE ../mathematics/include)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(black_scholes
+    ${SOURCE_FILES})
+
+target_include_directories(black_scholes PUBLIC include ${MATHEMATICS_INCLUDE})

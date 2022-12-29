@@ -19,6 +19,7 @@ add_subdirectory(mathematics)
 add_subdirectory(path_dependent)
 add_subdirectory(exotic)
 add_subdirectory(trees)
+add_subdirectory(black_scholes)
 
 add_executable(tester main.cpp)
 add_executable(tester_no_2 chapter_2.cpp)
@@ -39,4 +40,4 @@ target_link_libraries(tester_no_6 mathematics wrappers pay_off monte_carlo rando
 
 target_link_libraries(exotics path_dependent exotic mathematics wrappers pay_off monte_carlo random data vanilla parameter statistics linear_algebra)
 
-target_link_libraries(theTree trees)
+target_link_libraries(theTree trees black_scholes pay_off mathematics parameter linear_algebra)

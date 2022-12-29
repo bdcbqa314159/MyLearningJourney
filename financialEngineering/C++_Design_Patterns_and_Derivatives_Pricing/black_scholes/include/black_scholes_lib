@@ -1,0 +1,6 @@
+#ifndef BLACK_SCHOLES_LIBRARY_H
+#define BLACK_SCHOLES_LIBRARY_H
+
+#include "black_scholes/BS_Formulas.hpp"
+
+#endif

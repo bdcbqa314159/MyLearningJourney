@@ -71,3 +71,17 @@ double PayOffBridge::operator()(double spot) const
 {
     return thePayOffPtr->operator()(spot);
 }
+
+PayOffForward::PayOffForward(double strike) : strike(strike)
+{
+}
+
+double PayOffForward::operator()(double spot) const
+{
+    return spot - strike;
+}
+
+std::unique_ptr<PayOff> PayOffForward::clone() const
+{
+    return std::make_unique<PayOffForward>(*this);
+}
