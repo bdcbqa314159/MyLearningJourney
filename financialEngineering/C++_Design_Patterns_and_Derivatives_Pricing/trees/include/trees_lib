@@ -1,0 +1,7 @@
+#ifndef TREES_LIBRARY_H
+#define TREES_LIBRARY_H
+
+#include "trees/TreeProducts.hpp"
+#include "trees/testingTrees.hpp"
+
+#endif

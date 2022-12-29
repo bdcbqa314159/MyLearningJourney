@@ -1,0 +1,19 @@
+file(GLOB trees_headers include/trees/**.hpp)
+file(GLOB trees_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${trees_headers}
+    ${trees_sources}
+    include/trees_lib
+)
+
+set(PAY_OFF_INCLUDE ../pay_off/include)
+set(PARAMETER_INCLUDE ../parameter/include)
+set(LINEAR_ALGEBRA_INCLUDE ../linear_algebra/include)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(trees
+    ${SOURCE_FILES})
+
+target_include_directories(trees PUBLIC include ${PAY_OFF_INCLUDE} ${PARAMETER_INCLUDE} ${LINEAR_ALGEBRA_INCLUDE})
