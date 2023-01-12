@@ -1,0 +1,8 @@
+#ifndef SOLVERS_LIBRARY_H
+#define SOLVERS_LIBRARY_H
+
+#include "solvers/testingSolvers.hpp"
+#include "solvers/bsCallClass.hpp"
+#include "solvers/solvers_implementation.hpp"
+
+#endif
