@@ -1,0 +1,20 @@
+file(GLOB factory_headers include/factory/**.hpp)
+file(GLOB factory_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${factory_headers}
+    ${factory_sources}
+    include/factory_lib
+)
+
+set(PAY_OFF_INCLUDE ../pay_off/include)
+
+# set(PARAMETER_INCLUDE ../parameter/include)
+# set(LINEAR_ALGEBRA_INCLUDE ../linear_algebra/include)
+# set(BLACK_SCHOLES_INCLUDE ../black_scholes/include)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(factory
+    ${SOURCE_FILES})
+
+target_include_directories(factory PUBLIC include ${PAY_OFF_INCLUDE})

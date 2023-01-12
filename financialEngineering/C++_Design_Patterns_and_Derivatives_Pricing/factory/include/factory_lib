@@ -1,0 +1,7 @@
+#ifndef FACTORY_LIBRARY_H
+#define FACTORY_LIBRARY_H
+
+#include "factory/testingFactory.hpp"
+#include "factory/payOffFactory.hpp"
+
+#endif

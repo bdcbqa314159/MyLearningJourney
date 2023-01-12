@@ -21,6 +21,7 @@ add_subdirectory(exotic)
 add_subdirectory(trees)
 add_subdirectory(black_scholes)
 add_subdirectory(solvers)
+add_subdirectory(factory)
 
 add_executable(tester main.cpp)
 add_executable(tester_no_2 chapter_2.cpp)
@@ -31,6 +32,7 @@ add_executable(tester_no_6 chapter_6.cpp)
 add_executable(exotics chapter_7.cpp)
 add_executable(theTree chapter_8.cpp)
 add_executable(theSolvers chapter_9.cpp)
+add_executable(factoryWork chapter_10.cpp)
 
 target_link_libraries(tester mathematics wrappers pay_off monte_carlo random data vanilla parameter statistics linear_algebra)
 target_link_libraries(tester_no_2 mathematics wrappers pay_off monte_carlo random data vanilla parameter statistics linear_algebra)
@@ -45,3 +47,5 @@ target_link_libraries(exotics path_dependent exotic mathematics wrappers pay_off
 target_link_libraries(theTree trees black_scholes pay_off mathematics parameter linear_algebra)
 
 target_link_libraries(theSolvers solvers black_scholes mathematics)
+
+target_link_libraries(factoryWork factory pay_off)
