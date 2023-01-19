@@ -1,0 +1,6 @@
+#ifndef VECTORS_LIBRARY_H
+#define VECTORS_LIBRARY_H
+
+#include "vectors/vectors.hpp"
+
+#endif

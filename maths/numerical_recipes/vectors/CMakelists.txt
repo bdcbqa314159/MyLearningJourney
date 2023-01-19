@@ -1,0 +1,15 @@
+file(GLOB vectors_headers include/vectors/**.hpp)
+file(GLOB vectors_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${vectors_headers}
+    ${vectors_sources}
+    include/vectors_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(vectors
+    ${SOURCE_FILES})
+
+target_include_directories(vectors PUBLIC include)
