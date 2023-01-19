@@ -1,0 +1,6 @@
+#ifndef ARRAYS_1D_LIBRARY_H
+#define ARRAYS_1D_LIBRARY_H
+
+#include "arrays_1D/arrays_1D.hpp"
+
+#endif

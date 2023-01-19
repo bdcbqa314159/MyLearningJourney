@@ -1,0 +1,15 @@
+file(GLOB arrays_1D_headers include/arrays_1D/**.hpp)
+file(GLOB arrays_1D_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${arrays_1D_headers}
+    ${arrays_1D_sources}
+    include/arrays_1D_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(arrays_1D
+    ${SOURCE_FILES})
+
+target_include_directories(arrays_1D PUBLIC include)

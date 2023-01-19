@@ -11,6 +11,7 @@ add_subdirectory(data_type)
 add_subdirectory(operators)
 add_subdirectory(selection)
 add_subdirectory(loops)
+add_subdirectory(arrays_1D)
 
 add_executable(tester main.cpp)
 
@@ -29,3 +30,6 @@ target_link_libraries(selection_exe selection)
 
 add_executable(looping main_4.cpp)
 target_link_libraries(looping loops)
+
+add_executable(arrays1D main_5.cpp)
+target_link_libraries(arrays1D arrays_1D)
