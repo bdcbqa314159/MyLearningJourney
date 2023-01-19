@@ -16,5 +16,11 @@ void homework_10();
 void homework_11();
 void homework_12();
 void homework_13();
+void homework_14();
+void homework_15();
+void homework_16();
+void homework_17();
+void homework_18();
+void homework_19();
 
 #endif

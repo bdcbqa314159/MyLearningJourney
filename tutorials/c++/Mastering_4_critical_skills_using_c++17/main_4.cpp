@@ -20,7 +20,13 @@ int main()
     // homework_10();
     // homework_11();
     // homework_12();
-    homework_13();
+    // homework_13();
+    // homework_14();
+    // homework_15();
+    // homework_16();
+    // homework_17();
+    // homework_18();
+    homework_19();
 
     return 0;
 }

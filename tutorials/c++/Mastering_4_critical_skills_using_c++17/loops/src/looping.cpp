@@ -333,3 +333,145 @@ void homework_13()
         std::cout << x << " ";
     std::cout << std::endl;
 }
+
+void print_cross(int odd_number)
+{
+
+    int M = 0, N = odd_number - 1;
+    for (int i = 0; i < odd_number; i++)
+    {
+        for (int j = 0; j < odd_number; j++)
+        {
+            int t1 = M + i, t2 = N - i;
+            if (j == t1 || j == t2)
+                std::cout << "*"
+                          << " ";
+            else
+                std::cout << " "
+                          << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+void homework_14()
+{
+    print_cross(5);
+    // print_cross(9);
+}
+
+void homework_15()
+{
+    int count = 0;
+
+    for (int x = 50; x <= 300; x++)
+    {
+        int start = 70;
+        if (start < x + 1)
+            start = x;
+
+        for (int y = start; y <= 400; y++)
+        {
+            count += ((x + y) % 7 == 0);
+        }
+    }
+    std::cout << count << std::endl;
+}
+
+void homework_16()
+{
+    int count = 0;
+    for (int a = 1; a <= 200; a++)
+    {
+        for (int b = 1; b <= 200; b++)
+        {
+            for (int c = 1; c <= 200; c++)
+            {
+                int d = a + b - c;
+                count += ((d <= 200) && (d >= 1));
+            }
+        }
+    }
+    std::cout << count << std::endl;
+}
+
+bool is_prime(int n)
+{
+    if (n == 1 || n == 0)
+        return false;
+    for (int i = 2; i < n / 2; i++)
+    {
+        if (n % i == 0)
+            return true;
+    }
+    return false;
+}
+
+void homework_17()
+{
+    int n = 499;
+    bool ans = is_prime(n);
+    if (ans)
+        std::cout << n << " is prime." << std::endl;
+    else
+        std::cout << n << " is not prime." << std::endl;
+}
+
+void eratosthenes_sieve(int n)
+{
+    std::vector<bool> primes(n + 1, true);
+
+    for (int p = 2; p * p <= n; p++)
+    {
+        if (primes[p] == true)
+        {
+            for (int i = p * 2; i <= n; i += p)
+                primes[i] = false;
+        }
+    }
+
+    for (int p = 2; p <= n; p++)
+    {
+        if (primes[p])
+            std::cout << p << " ";
+    }
+    std::cout << std::endl;
+}
+
+void homework_18()
+{
+
+    eratosthenes_sieve(30);
+}
+
+int sum_of_digits(int N)
+{
+    int sum = 0;
+    while (N > 0)
+    {
+        sum += N % 10;
+        N /= 10;
+    }
+
+    return sum;
+}
+
+int digits_sum(int N, int a, int b)
+{
+    int answer = 0;
+    for (int i = 1; i <= N; i++)
+    {
+        int temp = sum_of_digits(i);
+        if (temp >= a && temp <= b)
+        {
+            answer += i;
+        }
+    }
+    return answer;
+}
+
+void homework_19()
+{
+    int ans = digits_sum(20, 2, 5);
+    std::cout << "answer: " << ans << std::endl;
+}
