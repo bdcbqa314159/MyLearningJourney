@@ -1,34 +1,80 @@
 #include "vectors_lib"
 #include "matrices_lib"
 
-double Matrix::operator()(size_t i, size_t j) const
+Matrix &Matrix::operator=(const Matrix &original)
+{
+    if (this != &original)
+    {
+        rows = original.rows;
+        columns = original.columns;
+        data = original.data;
+    }
+
+    return *this;
+}
+
+double const &Matrix::operator()(size_t i, size_t j) const
 {
     if (i >= rows || j >= columns)
         throw std::string{"Dimension error"};
 
     return data[i * columns + j];
 }
+
 double &Matrix::operator()(size_t i, size_t j)
 {
     if (i >= rows || j >= columns)
         throw std::string{"Dimension error"};
-
     return data[i * columns + j];
 }
 
-size_t Matrix::dim_rows() const
+void Matrix::transpose()
 {
-    return rows;
+
+    return;
 }
 
-size_t Matrix::dim_columns() const
+void Matrix::resize(size_t rows, size_t columns)
 {
-    return columns;
+    this->rows = rows;
+    this->columns = columns;
+    data.clear();
+    data.resize(rows * columns);
+
+    return;
+}
+
+Vector Matrix::row(size_t i) const
+{
+    if (i >= rows)
+        throw std::string{"Dimension error"};
+    std::vector<double> new_data(columns);
+
+    for (size_t j = 0; j < columns; j++)
+    {
+        new_data[j] = operator()(i, j);
+    }
+
+    return Vector(new_data);
+}
+Vector Matrix::column(size_t j) const
+{
+    if (j >= columns)
+        throw std::string{"Dimension error"};
+
+    std::vector<double> new_data(rows);
+    for (size_t i = 0; i < rows; i++)
+    {
+
+        new_data[i] = operator()(i, j);
+    }
+
+    return Vector(new_data);
 }
 
 Matrix Matrix::operator-() const
 {
-    Matrix opposite(rows, columns, 0);
+    Matrix opposite = *this;
     for (size_t i = 0; i < rows; i++)
     {
         for (size_t j = 0; j < columns; j++)

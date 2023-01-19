@@ -22,6 +22,11 @@ public:
         return dimension;
     }
 
+    std::vector<double> vector() const
+    {
+        return data;
+    }
+
     Vector &operator=(const Vector &original);
 
     void resize(size_t newDimension);
