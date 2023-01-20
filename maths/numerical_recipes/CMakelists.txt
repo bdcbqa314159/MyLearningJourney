@@ -7,8 +7,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 project(linear_algebra_prototype VERSION 0.1.0)
 
 add_subdirectory(vectors)
+add_subdirectory(matrices)
 
-# add_subdirectory(matrices)
 add_executable(linalg main.cpp)
 
-target_link_libraries(linalg vectors)
+target_link_libraries(linalg vectors matrices)

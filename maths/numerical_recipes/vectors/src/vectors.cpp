@@ -14,6 +14,7 @@ Vector &Vector::operator=(const Vector &original)
 void Vector::resize(size_t newDimension)
 {
     dimension = newDimension;
+    data.clear();
     data.resize(newDimension);
     return;
 }

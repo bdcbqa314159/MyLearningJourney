@@ -10,7 +10,13 @@ class Matrix
 
 public:
     Matrix() {}
-    Matrix(const Matrix &original) : rows(original.rows), columns(original.columns), data(data) {}
+
+    Matrix(size_t rows, size_t columns) : rows(rows), columns(columns), data(std::vector<double>(rows * columns)) {}
+
+    Matrix(size_t rows, size_t columns, double &value) : rows(rows), columns(columns), data(std::vector<double>(rows * columns, value)) {}
+
+    Matrix(const Matrix &original) : rows(original.rows), columns(original.columns), data(original.data) {}
+
     Matrix(size_t rows, size_t columns, std::vector<double> &data)
     {
         if (rows * columns != data.size())
@@ -30,7 +36,7 @@ public:
     double const &operator()(size_t i, size_t j) const;
     double &operator()(size_t i, size_t j);
 
-    void transpose();
+    Matrix transpose();
     void resize(size_t rows, size_t columns);
 
     Vector row(size_t i) const;
@@ -38,6 +44,7 @@ public:
 
     size_t row_dimension() const { return rows; }
     size_t column_dimension() const { return columns; }
+    std::vector<double> matrix() const { return data; }
 
     Matrix operator-() const;
 
