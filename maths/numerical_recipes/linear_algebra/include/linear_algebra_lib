@@ -1,0 +1,6 @@
+#ifndef LINEAR_ALGEBRA_LIBRARY_H
+#define LINEAR_ALGEBRA_LIBRARY_H
+
+#include "linear_algebra/linear_algebra.hpp"
+
+#endif

@@ -8,7 +8,8 @@ project(linear_algebra_prototype VERSION 0.1.0)
 
 add_subdirectory(vectors)
 add_subdirectory(matrices)
+add_subdirectory(linear_algebra)
 
 add_executable(linalg main.cpp)
 
-target_link_libraries(linalg vectors matrices)
+target_link_libraries(linalg vectors matrices linear_algebra)
