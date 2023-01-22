@@ -4,6 +4,7 @@
 #include <numeric>
 #include "vectors_lib"
 #include "matrices_lib"
+#include "linear_algebra_lib"
 
 using namespace std;
 
@@ -40,6 +41,23 @@ int main()
     p.transpose();
 
     cout << p << endl;
+
+    vector<double> a = {2, 1, 2, 1, 2, 1, 3, 1, -1};
+    vector<double> b = {10, 1, 0, 0, 8, 0, 1, 0, 2, 0, 0, 1};
+
+    Matrix A(3, 3, a);
+    Matrix B(3, 4, b);
+
+    cout << "A: " << A << endl;
+    cout << "B: " << B << endl;
+
+    gauss_jordan_elimination(A, B);
+
+    cout << "A: " << A << endl;
+    cout << "B: " << B << endl;
+    vector<double> v_solution = {1, 2, 3};
+    Vector b_solution(v_solution);
+    cout << "solution: " << b_solution << endl;
 
     return 0;
 }

@@ -36,7 +36,7 @@ double &Vector::operator[](size_t index)
 Vector Vector::operator-() const
 {
     Vector opposite = *this;
-    for (size_t i = 0; i < dimension; i++)
+    for (int i = 0; i < dimension; i++)
         opposite[i] = -data[i];
     return opposite;
 }
@@ -46,7 +46,7 @@ double Vector::dot(const Vector &vector) const
     if (dimension != vector.dimension)
         throw std::string{"Dimension error"};
     double result{};
-    for (size_t i = 0; i < dimension; i++)
+    for (int i = 0; i < dimension; i++)
         result += data[i] * vector[i];
     return result;
 }
@@ -54,7 +54,7 @@ double Vector::dot(const Vector &vector) const
 Vector operator*(const double &lambda, const Vector &vector)
 {
     Vector result(vector);
-    for (size_t i = 0; i < vector.size(); i++)
+    for (int i = 0; i < vector.size(); i++)
         result[i] *= lambda;
     return result;
 }
@@ -66,12 +66,12 @@ Vector operator*(const Vector &vector, const double &lambda)
 
 Vector operator+(const Vector &vector_1, const Vector &vector_2)
 {
-    size_t dimension_1 = vector_1.size(), dimension_2 = vector_2.size();
+    int dimension_1 = vector_1.size(), dimension_2 = vector_2.size();
     if (dimension_1 != dimension_2)
         throw std::string{"Dimension error"};
 
     Vector result(dimension_1);
-    for (size_t i = 0; i < dimension_1; i++)
+    for (int i = 0; i < dimension_1; i++)
     {
         result[i] = vector_1[i] + vector_2[i];
     }
@@ -85,12 +85,12 @@ Vector operator-(const Vector &vector_1, const Vector &vector_2)
 
 double dot(const Vector &vector_1, const Vector &vector_2)
 {
-    size_t dimension_1 = vector_1.size(), dimension_2 = vector_2.size();
+    int dimension_1 = vector_1.size(), dimension_2 = vector_2.size();
     if (dimension_1 != dimension_2)
         throw std::string{"Dimension error"};
     double result{};
 
-    for (size_t i = 0; i < dimension_1; i++)
+    for (int i = 0; i < dimension_1; i++)
     {
         result += vector_1[i] * vector_2[i];
     }
@@ -99,7 +99,7 @@ double dot(const Vector &vector_1, const Vector &vector_2)
 
 std::ostream &operator<<(std::ostream &os, const Vector &vector)
 {
-    size_t dimension = vector.size();
+    int dimension = vector.size();
     for (size_t i = 0; i < dimension; i++)
         os << vector[i] << " ";
     return os;
