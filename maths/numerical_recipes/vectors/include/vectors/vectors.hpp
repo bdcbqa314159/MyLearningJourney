@@ -9,9 +9,9 @@ class Vector
 public:
     Vector() {}
 
-    Vector(int dimension) : dimension(dimension), data(std::vector<double>(dimension)) {}
+    Vector(size_t dimension) : dimension(dimension), data(std::vector<double>(dimension)) {}
 
-    Vector(int dimension, double &value) : dimension(dimension), data(std::vector<double>(dimension, value)) {}
+    Vector(size_t dimension, double &value) : dimension(dimension), data(std::vector<double>(dimension, value)) {}
 
     Vector(const std::vector<double> &data) : dimension(data.size()), data(data) {}
 

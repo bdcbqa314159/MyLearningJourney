@@ -4,8 +4,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# message(CMAKE_FIND_DEBUG_MODE)
-# set(CMAKE_FIND_DEBUG_MODE TRUE)
 project(numerical_recipes VERSION 0.1.0)
 
 add_subdirectory(vectors)
