@@ -1,0 +1,15 @@
+{
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "editor.formatOnSave": true,
+  "cmake.debugConfig": {
+    "type": "lldb",
+    "stopAtEntry": false,
+    "MIMode": "lldb",
+    "miDebuggerPath": "/usr/bin/lldb",
+    "logging": {
+      "trace": true,
+      "engineLogging": true,
+      "traceResponse": true
+    }
+  }
+}
