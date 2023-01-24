@@ -1,7 +1,9 @@
 #ifndef LINEAR_ALGEBRA_LIBRARY_H
 #define LINEAR_ALGEBRA_LIBRARY_H
 
-#include "linear_algebra/linear_algebra.hpp"
+#include "linear_algebra/Gauss_Jordan_elimination.hpp"
 #include "linear_algebra/LU_decomposition.hpp"
+#include "linear_algebra/Tridiagonal.hpp"
+#include "linear_algebra/Banded.hpp"
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef LINEAR_ALGEBRA_H
-#define LINEAR_ALGEBRA_H
+#ifndef GAUSS_JORDAN_ELIMINATION_H
+#define GAUSS_JORDAN_ELIMINATION_H
 
 #include <iostream>
 #include <vector>
