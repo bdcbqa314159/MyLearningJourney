@@ -1,0 +1,15 @@
+file(GLOB mathematics_headers include/mathematics/**.hpp)
+file(GLOB mathematics_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${mathematics_headers}
+    ${mathematics_sources}
+    include/mathematics_lib
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(mathematics
+    ${SOURCE_FILES})
+
+target_include_directories(mathematics PUBLIC include)
