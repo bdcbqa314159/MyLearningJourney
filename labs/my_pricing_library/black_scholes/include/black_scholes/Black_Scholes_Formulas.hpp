@@ -3,143 +3,49 @@
 #include "mathematics_lib"
 #include <cmath>
 
-class RealFunction
+class Black_Scholes_Formulas
 {
 public:
-    virtual ~RealFunction() {}
-    virtual double operator()(double x) = 0;
-};
-
-class RealFunction2D
-{
-public:
-    virtual ~RealFunction2D() {}
-    virtual double operator()(double x, double y) = 0;
-};
-
-class Constant : virtual public RealFunction
-{
-
-public:
-    Constant() {}
-
-    Constant(double intensity) : intensity(intensity) {}
-
-    virtual double operator()(double x) override
+    Black_Scholes_Formulas() {}
+    Black_Scholes_Formulas(double rfr, double vol, double strike, double timeToMaturity, double assetValue, double dividend = 0)
+        : r(rfr), sigma(vol), K(strike), tau(timeToMaturity), S(assetValue), q(dividend)
     {
-        return intensity;
-    }
+        double standardDeviation = sigma * std::sqrt(tau);
+        double moneyness = std::log(S / K);
 
-    ~Constant() {}
-
-private:
-    double intensity{};
-};
-
-class Constant2D : virtual public RealFunction2D
-{
-
-public:
-    Constant2D() {}
-
-    Constant2D(double intensity) : intensity(intensity) {}
-
-    virtual double operator()(double x, double y) override
-    {
-        return intensity;
-    }
-
-    ~Constant2D() {}
-
-private:
-    double intensity{};
-};
-
-class BlackScholes
-{
-public:
-    BlackScholes() {}
-
-    BlackScholes(double spot, double rfr, double dividend, double vol) : spot(spot), rfr(rfr), dividend(dividend), vol(vol) {}
-
-    double theDrift() const;
-
-    double theDiffusion() const;
-
-    double initialValue() const;
-
-    double theRfr() const;
-
-    double theDividend() const;
-
-private:
-    double spot{}, rfr{}, dividend{}, vol{};
-};
-
-class EuroPutCallValues
-{
-public:
-    EuroPutCallValues() {}
-    EuroPutCallValues(double strike, double maturity) : strike(strike), maturity(maturity) {}
-
-    double theStrike() const
-    {
-        return strike;
-    }
-
-    double theMaturity() const
-    {
-        return maturity;
-    }
-
-private:
-    double strike{};
-    double maturity{};
-};
-
-class BlackScholes_Formulas
-{
-public:
-    BlackScholes_Formulas() {}
-
-    BlackScholes_Formulas(const BlackScholes &model, const EuroPutCallValues &theValues) : theModel(model), theOptionValues(theValues)
-    {
-        standardDeviation = theModel.theDiffusion() * std::sqrt(theOptionValues.theMaturity());
-        moneyness = std::log(theModel.initialValue() / theOptionValues.theStrike());
-        d1 = (moneyness + theModel.theDrift() * theOptionValues.theMaturity() + 0.5 * standardDeviation * standardDeviation) / standardDeviation;
-        d2 = d1 - standardDeviation;
+        d_1 = (moneyness + (r - q + 0.5 * standardDeviation * standardDeviation)) / standardDeviation;
+        d_2 = d_1 - standardDeviation;
+        calculation_1 = S * std::exp(-q * tau);
+        calculation_2 = K * std::exp(-r * tau);
     }
 
     virtual double operator()() = 0;
-    virtual ~BlackScholes_Formulas() {}
+    virtual ~Black_Scholes_Formulas() {}
 
 protected:
-    BlackScholes theModel;
-    EuroPutCallValues theOptionValues;
-    double moneyness{}, standardDeviation{}, d1{}, d2{};
+    double r{}, sigma{}, K{}, tau{}, S{}, q{};
+    double d_1{}, d_2{}, calculation_1{}, calculation_2{};
 };
 
-class BlackScholes_Call : public BlackScholes_Formulas
+class BlackScholes_Call : public Black_Scholes_Formulas
 {
 public:
-    BlackScholes_Call(){};
-    BlackScholes_Call(const BlackScholes &model, const EuroPutCallValues &theValues) : BlackScholes_Formulas(model, theValues) {}
-
-    double operator()() override
+    BlackScholes_Call() {}
+    BlackScholes_Call(double rfr, double vol, double strike, double timeToMaturity, double assetValue, double dividend) : Black_Scholes_Formulas(rfr, vol, strike, timeToMaturity, assetValue, dividend) {}
+    virtual double operator()() override
     {
-        return theModel.initialValue() * std::exp(-theModel.theDividend()) * cumulativeNormal(d1) - theOptionValues.theStrike() * std::exp(-theModel.theRfr() * theOptionValues.theMaturity()) * cumulativeNormal(d2);
+        return calculation_1 * cumulativeNormal(d_1) - calculation_2 * cumulativeNormal(d_2);
     }
 };
 
-class BlackScholes_Put : public BlackScholes_Formulas
+class BlackScholes_Put : public Black_Scholes_Formulas
 {
 public:
-    BlackScholes_Put(){};
-    BlackScholes_Put(const BlackScholes &model, const EuroPutCallValues &theValues) : BlackScholes_Formulas(model, theValues) {}
-
-    double operator()() override
+    BlackScholes_Put() {}
+    BlackScholes_Put(double rfr, double vol, double strike, double timeToMaturity, double assetValue, double dividend) : Black_Scholes_Formulas(rfr, vol, strike, timeToMaturity, assetValue, dividend) {}
+    virtual double operator()() override
     {
-        return -theModel.initialValue() * std::exp(-theModel.theDividend()) * (1. - cumulativeNormal(d1)) + theOptionValues.theStrike() * std::exp(-theModel.theRfr() * theOptionValues.theMaturity()) * (1. - cumulativeNormal(d2));
+        return -calculation_1 * (1. - cumulativeNormal(d_1)) + calculation_2 * (1. - cumulativeNormal(d_2));
     }
 };
 

@@ -11,13 +11,13 @@ int main()
 
     cout << "Calling a call and a put under BS" << endl;
 
-    BlackScholes model(300, 0.03, 0, 0.15);
-    EuroPutCallValues values(250, 1);
+    double spotPrice = 300, strike = 250, T = 1, vol = 0.15, rfr = 0.03, dividend = 0;
 
-    BlackScholes_Call call(model, values);
-    BlackScholes_Put put(model, values);
-    cout << "The call: " << call() << endl;
-    cout << "The put: " << put() << endl;
+    BlackScholes_Call call(rfr, vol, strike, T, spotPrice, dividend);
+    BlackScholes_Put put(rfr, vol, strike, T, spotPrice, dividend);
+
+    cout << "Call: " << call() << endl;
+    cout << "Put: " << put() << endl;
 
     return 0;
 }
