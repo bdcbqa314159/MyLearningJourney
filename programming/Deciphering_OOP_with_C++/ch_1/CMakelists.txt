@@ -1,0 +1,17 @@
+file(GLOB ch_1_headers include/ch_1/**.hpp)
+file(GLOB ch_1_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${ch_1_headers}
+    ${ch_1_sources}
+    include/ch_1_lib
+)
+
+set(MATHEMATICS_INCLUDE ../mathematics/include)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(ch_1
+    ${SOURCE_FILES})
+
+target_include_directories(ch_1 PUBLIC include ${MATHEMATICS_INCLUDE})

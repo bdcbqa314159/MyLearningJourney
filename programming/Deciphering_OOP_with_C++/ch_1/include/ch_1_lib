@@ -1,0 +1,7 @@
+#ifndef CHAPTER_ONE_LIBRARY_H
+#define CHAPTER_ONE_LIBRARY_H
+
+#include "ch_1/test.hpp"
+#include "ch_1/chapter_1.hpp"
+
+#endif
