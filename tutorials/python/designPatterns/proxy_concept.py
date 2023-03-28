@@ -1,4 +1,6 @@
 """proxy concept"""
+# pylint: disable=too-few-public-methods
+# pylint: disable=arguments-differ
 from abc import ABCMeta, abstractmethod
 
 
