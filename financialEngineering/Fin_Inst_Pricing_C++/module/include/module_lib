@@ -1,0 +1,6 @@
+#ifndef MODULE_LIBRARY_H
+#define MODULE_LIBRARY_H
+
+#include "module/testing.hpp"
+
+#endif

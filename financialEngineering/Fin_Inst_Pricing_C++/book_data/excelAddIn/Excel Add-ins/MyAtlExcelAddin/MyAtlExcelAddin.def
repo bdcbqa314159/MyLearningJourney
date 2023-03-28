@@ -1,0 +1,9 @@
+; MyAtlExcelAddin.def : Declares the module parameters.
+
+LIBRARY      "MyAtlExcelAddin.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

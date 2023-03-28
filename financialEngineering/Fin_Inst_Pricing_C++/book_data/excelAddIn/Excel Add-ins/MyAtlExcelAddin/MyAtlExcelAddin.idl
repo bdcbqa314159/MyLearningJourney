@@ -1,0 +1,72 @@
+// MyAtlExcelAddin.idl : IDL source for MyAtlExcelAddin
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MyAtlExcelAddin.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(DE48EB00-2907-46BD-991E-CF71ED7F2973),
+	dual,
+	nonextensible,
+	helpstring("IMyExcelFunctions Interface"),
+	pointer_default(unique)
+]
+interface IMyExcelFunctions : IDispatch{
+	[id(1), helpstring("method MyPI")] HRESULT MyPI([out,retval] DOUBLE* MyPIArg);
+	[id(2), helpstring("method MySubtract")] HRESULT MySubtract([in] DOUBLE* arg1, [in] DOUBLE* arg2, [out,retval] DOUBLE* result);
+	[id(3), helpstring("method MyAdd")] HRESULT MyAdd([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(4), helpstring("method DanielSum")] HRESULT DanielSum([in]VARIANT* range, [out,retval] DOUBLE* result);
+	[id(5), helpstring("method DanielSumReciprocals")] HRESULT DanielSumReciprocals([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(6), helpstring("method DanielSumAbsoluteValues")] HRESULT DanielSumAbsoluteValues([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(7), helpstring("method DanielMean")] HRESULT DanielMean([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(8), helpstring("method DanielWeightedArithMean")] HRESULT DanielWeightedArithMean([in] VARIANT* range1, [in] VARIANT* range2, [out,retval] DOUBLE* result);
+	[id(9), helpstring("method DanielGeometricMean")] HRESULT DanielGeometricMean([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(10), helpstring("method DanielHarmonicMean")] HRESULT DanielHarmonicMean([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(11), helpstring("method DanielQudraticMean")] HRESULT DanielQuadraticMean([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(12), helpstring("method DanielSumSquares")] HRESULT DanielSumSquares([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(13), helpstring("method DanielMedian")] HRESULT DanielMedian([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(14), helpstring("method DanielMode")] HRESULT DanielMode([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(15), helpstring("method DanielDeviationFormMean")] HRESULT DanielDeviationFromMean([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(16), helpstring("method DanielStandardDeviation")] HRESULT DanielStandardDeviation([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(17), helpstring("method DanielVariance")] HRESULT DanielVariance([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(18), helpstring("method DanielRthMoment")] HRESULT DanielRthMoment([in] VARIANT* range, [in] LONG* r, [out,retval] DOUBLE* result);
+	[id(19), helpstring("method DanielRthMomentMean")] HRESULT DanielRthMomentMean([in] VARIANT* range, [in] LONG* r, [out,retval] DOUBLE* result);
+	[id(20), helpstring("method DanielRthMoment2")] HRESULT DanielRthMoment2([in] VARIANT* range, [in] LONG* r, [in] DOUBLE* A, [out,retval] DOUBLE* result);
+	[id(21), helpstring("method DanielRthMoment3")] HRESULT DanielRthMoment3([in] VARIANT* range, [in] VARIANT* freq, [in] LONG* r, [in] DOUBLE* A, [out,retval] DOUBLE* result);
+	[id(22), helpstring("method DanielSkewness")] HRESULT DanielSkewness([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(23), helpstring("method DanielMomentCoeffKurtosis")] HRESULT DanielMomentCoeffKurtosis([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(24), helpstring("method DanielMaxValue")] HRESULT DanielMaxValue([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(25), helpstring("method DanielMinValue")] HRESULT DanielMinValue([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(26), helpstring("method DanielMaxAbsValue")] HRESULT DanielMaxAbsValue([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(27), helpstring("method DanielMinAbsValue")] HRESULT DanielMinAbsValue([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(28), helpstring("method DanielIndexMaxValue")] HRESULT DanielIndexMaxValue([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(29), helpstring("method DanielIndexMinValue")] HRESULT DanielIndexMinValue([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(30), helpstring("method DanielIndexMaxAbsValue")] HRESULT DanielIndexMaxAbsValue([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(31), helpstring("method DanielIndexMinAbsValue")] HRESULT DanielIndexMinAbsValue([in] VARIANT* range, [out,retval] DOUBLE* result);
+	[id(32), helpstring("method DanielMaxValue2")] HRESULT DanielMaxValue2([in] VARIANT* range1, [in] VARIANT* range2, [out,retval] DOUBLE* result);
+	[id(33), helpstring("method DanielMinValue2")] HRESULT DanielMinValue2([in] VARIANT* range1, [in] VARIANT* range2, [out,retval] DOUBLE* result);
+	[id(34), helpstring("method DanielMaxAbsValue2")] HRESULT DanielMaxAbsValue2([in] VARIANT* range1, [in] VARIANT* range2, [out,retval] DOUBLE* result);
+	[id(35), helpstring("method DanielMinAbsValue2")] HRESULT DanielMinAbsValue2([in] VARIANT* range1, [in] VARIANT* range2, [out,retval] DOUBLE* result);
+	[id(36), helpstring("method MyArrayFunction")] HRESULT MyArrayFunction([in] VARIANT* range1, [in] VARIANT* range2, [out,retval] VARIANT* result);
+};
+[
+	uuid(D68D5EDA-5962-4E2F-A349-6BC894920BB7),
+	version(1.0),
+	helpstring("MyAtlExcelAddin 1.0 Type Library")
+]
+library MyAtlExcelAddinLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(7E516342-6B85-46DB-A262-CE91BF4DE8E0),
+		helpstring("MyExcelFunctions Class")
+	]
+	coclass MyExcelFunctions
+	{
+		[default] interface IMyExcelFunctions;
+	};
+};
