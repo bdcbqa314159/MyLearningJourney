@@ -1,9 +1,0 @@
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/cmake/cmake_tutorials/module7/build/CMakeFiles/calculator.dir
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/cmake/cmake_tutorials/module7/build/CMakeFiles/edit_cache.dir
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/cmake/cmake_tutorials/module7/build/CMakeFiles/rebuild_cache.dir
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/cmake/cmake_tutorials/module7/build/my_math/CMakeFiles/my_math.dir
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/cmake/cmake_tutorials/module7/build/my_math/CMakeFiles/edit_cache.dir
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/cmake/cmake_tutorials/module7/build/my_math/CMakeFiles/rebuild_cache.dir
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/cmake/cmake_tutorials/module7/build/my_print/CMakeFiles/my_print.dir
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/cmake/cmake_tutorials/module7/build/my_print/CMakeFiles/edit_cache.dir
-/Users/bernardocohen/repos/MyLearningJourney/tutorials/cmake/cmake_tutorials/module7/build/my_print/CMakeFiles/rebuild_cache.dir
