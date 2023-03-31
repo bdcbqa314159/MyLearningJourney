@@ -1,0 +1,18 @@
+file(GLOB working_stl_headers include/working_stl/**.hpp)
+file(GLOB working_stl_sources src/**.cpp)
+
+set(SOURCE_FILES
+    ${working_stl_headers}
+    ${working_stl_sources}
+    include/working_stl_lib
+)
+
+# set(VECTORS_INCLUDE ../vectors/include)
+# set(MATRICES_INCLUDE ../matrices/include)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+add_library(working_stl
+    ${SOURCE_FILES})
+
+target_include_directories(working_stl PUBLIC include) #${VECTORS_INCLUDE} ${MATRICES_INCLUDE})

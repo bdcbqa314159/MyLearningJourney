@@ -7,7 +7,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 project(fin_inst_pricing VERSION 0.1.0)
 
 add_subdirectory(module)
+add_subdirectory(working_stl)
 
 add_executable(module_exe main.cpp)
+add_executable(stl_exe stl_tests.cpp)
 
 target_link_libraries(module_exe module)
+target_link_libraries(stl_exe working_stl)

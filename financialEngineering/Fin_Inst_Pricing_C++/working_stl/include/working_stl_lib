@@ -1,0 +1,8 @@
+#ifndef WORKING_STL_LIBRARY_H
+#define WORKING_STL_LIBRARY_H
+
+#include "working_stl/assoc_cont.hpp"
+#include "working_stl/func_objects.hpp"
+#include "working_stl/iterators.hpp"
+
+#endif
